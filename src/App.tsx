@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import AboutTeam from './components/AboutTeam/AboutTeam';
+import AboutTeam from './Pages/AboutTeam/AboutTeam';
 import Footer from './components/Footer/Footer';
-import Games from './components/Games/Games';
+import Games from './Pages/Games/Games';
 import Header from './components/Header/Header';
-import MainPage from './components/MainPage/MainPage';
-import Settings from './components/Settings/Settings';
-import Statistic from './components/Statistic/Statistic';
-import TextBook from './components/TextBook/TextBook';
+import MainPage from './Pages/MainPage/MainPage';
+import Settings from './Pages/Settings/Settings';
+import Statistic from './Pages/Statistic/Statistic';
+import TextBook from './Pages/TextBook/TextBook';
 
 const App:React.FC = () => (
   <div className="page-content">
