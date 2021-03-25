@@ -1,9 +1,11 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import thunkMiddleWare from 'redux-thunk';
 import appReducer from './app-reducer';
+import makeWordsGameReducer from './make-word-reducer';
 
 export const rootReducer = combineReducers({
   app: appReducer,
+  makeWordsGame: makeWordsGameReducer,
 });
 
 type RootReducerType = typeof rootReducer;
