@@ -24,9 +24,10 @@ const WordRandomLetters:React.FC<PropsType> = ({ word, inputHandler }: PropsType
       {
       randomWord.map((el, index) => (
         <div
+          // eslint-disable-next-line react/no-array-index-key
+          key={el + index}
           role="presentation"
           onClick={() => { inputHandler(el); onClickHandler(index); }}
-          onKeyDown={() => { inputHandler(el); onClickHandler(index); }}
           className="word-letter-box"
         >
           {el}
