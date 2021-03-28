@@ -6,7 +6,7 @@ import { AppStateType } from './store';
 const MAKE_WORD_REDUCER = 'rs-lang/MAKE_WORD_REDUCER';
 
 const InitialState = {
-  words: null as any,
+  words: [],
 };
 
 type InitialStateType = typeof InitialState;

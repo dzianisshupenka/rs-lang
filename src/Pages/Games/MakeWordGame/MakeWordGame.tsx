@@ -72,7 +72,6 @@ const MakeWordGame:React.FC<PropsType> = ({ words, getWordsForGame }: PropsType)
       setTimeout(() => NextWordHandler(), 700);
     }
   };
-  console.log(words);
 
   const startGameHandler = () => {
     setIsRunning(true);
@@ -115,7 +114,7 @@ const MakeWordGame:React.FC<PropsType> = ({ words, getWordsForGame }: PropsType)
     : (
       <div className="make-words-wrapper">
         <div className="make-words-description">В этой игре вам предстоит собрать перевод слова, используя предоставленные буквы</div>
-        <div className="make-words-description">{gameOver ? 'Игра окончена!' : ''}</div>
+        <div className="make-words-description">{gameOver ? `Игра окончена! Правильных слов: ${correctWords}, ошибок: ${errors}, всего слов: ${correctWords + errors}` : ''}</div>
         <div className="make-words-description">
           <button className="start-game-btn" type="button" onClick={startGameHandler}>{gameOver ? 'Начать новую игру' : 'Начать игру'}</button>
         </div>
