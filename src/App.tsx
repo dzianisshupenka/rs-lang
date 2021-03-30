@@ -9,7 +9,7 @@ import Settings from './Pages/Settings/Settings';
 import Statistic from './Pages/Statistic/Statistic';
 import TextBook from './Pages/TextBook/TextBook';
 import SignIn from './Pages/Authorization/SignIn';
-// import SignUp from './Pages/Authorization/SignUp';
+import SignUp from './Pages/Authorization/SignUp';
 
 const App:React.FC = () => (
   <div className="page-content">
@@ -23,7 +23,7 @@ const App:React.FC = () => (
         <Route path="/statistic" component={Statistic} />
         <Route path="/textbook" component={TextBook} />
         <Route path="/signin" component={SignIn} />
-        {/* <Route path="/signup" component={SignUP} /> */}
+        <Route path="/signup" component={SignUp} />
       </div>
       <Footer />
     </BrowserRouter>

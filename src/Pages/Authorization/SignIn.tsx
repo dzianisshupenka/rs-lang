@@ -3,12 +3,11 @@ import AuthForm from './AuthForm';
 import FormTextInputs from './FormTextInputs';
 import AuthTextInput from './AuthTypes';
 import { signIn } from '../../api/AuthorizationAPI';
-import { SignInReqBody } from '../../api/Types';
 import {
   setQueryStatusAction,
   QueryStatuses,
 } from '../../redux/user-reducer';
-
+import extractSignInCredentialsFromForm from './CommonFunctions';
 import store from '../../redux/store';
 
 const arrOfTextInputs: AuthTextInput[] = [
@@ -27,16 +26,6 @@ const arrOfTextInputs: AuthTextInput[] = [
     minLength: 8,
   },
 ];
-
-const extractSignInCredentialsFromForm = (
-  HTMLForm: HTMLFormElement,
-): SignInReqBody => {
-  const rawSignInData: FormData = new FormData(HTMLForm);
-  return {
-    email: (rawSignInData.get('email') as string) || '',
-    password: (rawSignInData.get('password') as string) || '',
-  };
-};
 
 const signInFormhandler = async (event: SyntheticEvent<HTMLFormElement>) => {
   event.preventDefault();
