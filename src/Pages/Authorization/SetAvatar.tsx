@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Avatar from '../../components/Avatar';
-import emptyAvatar from '../../assets/emptyAvatar.png';
+
 // todo file deletes onChange. Fix it.
 export default function SetAvatar() {
   async function setAvatarhandler(e: any, calllback: Function) {
@@ -12,10 +12,10 @@ export default function SetAvatar() {
       };
       reader.readAsDataURL(file);
     } else {
-      calllback(emptyAvatar);
+      calllback('');
     }
   }
-  const [avatarSrc, setavatarSrc] = useState(emptyAvatar);
+  const [avatarSrc, setavatarSrc] = useState('');
   return (
     <>
       <Avatar src={avatarSrc} width={180} height={180} />

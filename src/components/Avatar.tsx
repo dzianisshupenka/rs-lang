@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import emptyAvatar from '../assets/emptyAvatar.png';
 
 type Props = {
   width: number;
@@ -9,7 +10,7 @@ type Props = {
 const Avatar: FC<Props> = ({ width, height, src }: Props) => (
   <div className="AvatarWrapper">
     <img
-      src={src}
+      src={src === '' ? emptyAvatar : src}
       alt="avatar"
       className="AvatarImg"
       style={{ width, height }}
