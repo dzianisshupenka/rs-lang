@@ -2,10 +2,17 @@ import React, { useEffect, useState } from 'react';
 
 type PropsType = {
   word: string;
+  clickedLetter: string
+  clickedTime: number
   inputHandler:(letter: string) => void
 };
 
-const WordRandomLetters:React.FC<PropsType> = ({ word, inputHandler }: PropsType) => {
+const WordRandomLetters:React.FC<PropsType> = ({
+  word,
+  clickedLetter,
+  clickedTime,
+  inputHandler,
+}: PropsType) => {
   const [randomWord, setRandomWord] = useState<string[]>([]);
 
   useEffect(() => {
@@ -18,6 +25,13 @@ const WordRandomLetters:React.FC<PropsType> = ({ word, inputHandler }: PropsType
     newRandom.splice(index, 1);
     setRandomWord(newRandom);
   };
+
+  useEffect(() => {
+    if (clickedLetter !== '' && randomWord.includes(clickedLetter)) {
+      const index = randomWord.indexOf(clickedLetter);
+      onClickHandler(index);
+    }
+  }, [clickedTime]);
 
   return (
     <div className="word-letters-wrapper">
