@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
-import { AppStateType } from '../../../redux/store';
-import { getWordsForGame } from '../../../redux/make-word-reducer';
+import { AppStateType } from '../../redux/store';
+import { getWordsForGame } from '../../redux/make-word-reducer';
 import WordInfo from './WordInfo';
 import WordRandomLetters from './WordRandomLetters';
 import fullScreenIcon from '../../../assets/icons/fullscreen.png';

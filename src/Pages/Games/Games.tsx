@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Switch, Route } from 'react-router-dom';
-import MakeWordGame from './MakeWordGame/MakeWordGame';
+import MakeWordGame from '../../components/MakeWordGame/MakeWordGame';
 
 const Games:React.FC = () => (
   <div className="games-wrapper">
