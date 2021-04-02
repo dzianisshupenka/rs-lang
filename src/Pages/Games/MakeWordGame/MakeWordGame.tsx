@@ -72,7 +72,6 @@ const MakeWordGame:React.FC<PropsType> = ({ words, getWordsForGame }: PropsType)
       setTimeout(() => NextWordHandler(), 700);
     }
   };
-  console.log(words);
 
   const startGameHandler = () => {
     setIsRunning(true);

@@ -1,4 +1,6 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import {
+  applyMiddleware, combineReducers, createStore, compose,
+} from 'redux';
 import thunkMiddleWare from 'redux-thunk';
 import appReducer from './app-reducer';
 import makeWordsGameReducer from './make-word-reducer';
