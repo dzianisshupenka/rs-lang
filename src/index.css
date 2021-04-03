@@ -80,6 +80,11 @@ color:rgba(0, 195, 255, 0.657);
   justify-content: center;
 }
 
+.fullscreen-wrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
 .word-info-main-wrapper {
   background-color: #00b4d8ff;
   display: flex;
@@ -106,7 +111,7 @@ color:rgba(0, 195, 255, 0.657);
   height: 300px;
   width: 90%;
   display: flex;
-  border-radius: 5%;
+  border-radius: 15px;
   flex-direction: column;
   font-size: 20px;
   align-items: center;
@@ -147,11 +152,12 @@ color:rgba(0, 195, 255, 0.657);
   text-decoration: none;
   font-size: 25px;
   color: #fff;
+  transform: scale(.95);
 }
 
 
 .game-link:hover {
-  transform: scale(1.05);
+  transform: scale(1);
   transition: transform .5s;
 }
 
@@ -220,12 +226,10 @@ color:rgba(0, 195, 255, 0.657);
   flex: 1;
 }
 
-/* .game-result {
-  width: 80%;
-  font-size: 35px;
-  color: #fff;
-  font-weight: bold;
-  flex: 1;
+.fullscreen-btn {
+  cursor: pointer;
+  border: none;
+  background-color: rgb(2, 160, 192);
 }
 
 .button-wrapper {
@@ -347,3 +351,10 @@ color:rgba(0, 195, 255, 0.657);
    transform: scale(1.85);
    transition: transform .5s;
 }
+
+button:active, button:focus {
+  outline: none;
+  }
+
+.fullscreen-btn > img {
+  width: 35px;
