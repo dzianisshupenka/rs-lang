@@ -15,7 +15,7 @@ code {
 .page-content {
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 
@@ -46,11 +46,13 @@ code {
 color:rgba(0, 195, 255, 0.657);
 }
 
-.footer-wrapper {
+.footer__wrapper {
   box-sizing: border-box;
   display: flex;
-  height: 50px;
-  background-color: #0077b6ff;
+  justify-content: space-around;
+  align-items: center;
+  height: 15vh;
+  background-color:rgba(0, 0, 255, 0.5);
 } 
 
 .header-links {
@@ -136,7 +138,7 @@ color:rgba(0, 195, 255, 0.657);
 }
 
 .game-links {
-  margin-top: 50px;
+  margin-top: 155px;
   width: 60%;
   display: flex;
   align-items: center;
@@ -238,19 +240,7 @@ color:rgba(0, 195, 255, 0.657);
   color: #fff;
   font-weight: bold;
   flex: 1;
-} */
-
-.footer{
-  background-color:rgba(0, 0, 255, 0.5);
-  
-}
-
-.footer__container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 15vh;
-}
+} 
 
 .footer__container-link {
   display: flex;
@@ -342,13 +332,11 @@ color:rgba(0, 195, 255, 0.657);
 
 .main__buttons-list-border a{
   text-decoration: none;
-  color: #000;
-  
-  
+  color: #000; 
 }
 
 .main__buttons-list-border:hover{
-   transform: scale(1.85);
+   transform: scale(1.35);
    transition: transform .5s;
 }
 
