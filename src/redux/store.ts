@@ -1,8 +1,8 @@
 import {
   applyMiddleware, combineReducers, compose, createStore,
 } from 'redux';
-
-import thunk, { TypedUseSelectorHook, useSelector } from 'react-redux';
+import thunkMiddleWare from 'redux-thunk';
+import { TypedUseSelectorHook, useSelector } from 'react-redux';
 import appReducer from './app-reducer';
 import makeWordsGameReducer from './make-word-reducer';
 import wordsListReducer from './wordsList-reducer';
@@ -20,7 +20,7 @@ export type AppStateType = ReturnType<RootReducerType>;
 
 // @ts-ignore
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk as any)));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMiddleWare)));
 
 export const useTypedSelector: TypedUseSelectorHook<AppStateType> = useSelector;
 
