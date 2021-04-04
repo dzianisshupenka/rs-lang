@@ -1,0 +1,25 @@
+.wordListItem {
+  border-bottom: 0.3px solid gray;
+  display: flex;
+  flex-direction: row;
+}
+
+.wordsList {
+  border-top: 0.3px solid gray;
+  border-right: 0.3px solid gray;
+  border-left: 0.3px solid gray;
+  margin: 5px;
+}
+
+.word {
+  margin: 5px;
+  font-weight: bold;
+}
+
+.translation {
+  margin: 5px;
+}
+
+.active {
+  background-color: gray;
+}
