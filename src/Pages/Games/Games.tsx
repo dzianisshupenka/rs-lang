@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Switch, Route } from 'react-router-dom';
 import MakeWordGame from './MakeWordGame/MakeWordGame';
+import AudioBatle from './AudioBattle/AudioBattle';
 
 const Games:React.FC = () => (
   <div className="games-wrapper">
@@ -13,6 +14,7 @@ const Games:React.FC = () => (
     <div className="game-wrapper">
       <Switch>
         <Route path="/games/make-word" component={MakeWordGame} />
+        <Route path="/games/audio-battle"><AudioBatle page={1} group={0} /></Route>
       </Switch>
     </div>
   </div>
