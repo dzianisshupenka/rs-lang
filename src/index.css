@@ -38,7 +38,8 @@ code {
   top: 0;
   left: 0;
   width: 100%;
-  background-color:rgba(0, 0, 255, 0.3);
+  background-color:rgba(0, 0, 255, 1);
+  z-index: 1;
 }
 .header-links:hover {
  transform: scale(1.05);
@@ -51,7 +52,7 @@ color:rgba(0, 195, 255, 0.657);
   display: flex;
   height: 50px;
   background-color: #0077b6ff;
-} 
+}
 
 .header-links {
   margin-left: 15px;
@@ -242,7 +243,7 @@ color:rgba(0, 195, 255, 0.657);
 
 .footer{
   background-color:rgba(0, 0, 255, 0.5);
-  
+
 }
 
 .footer__container {
@@ -343,8 +344,8 @@ color:rgba(0, 195, 255, 0.657);
 .main__buttons-list-border a{
   text-decoration: none;
   color: #000;
-  
-  
+
+
 }
 
 .main__buttons-list-border:hover{
@@ -358,4 +359,12 @@ button:active, button:focus {
 
 .fullscreen-btn > img {
   width: 35px;
+}
+
+.textBookPage {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  position: relative;
+  top: 7%;
+  z-index: 0;
 }

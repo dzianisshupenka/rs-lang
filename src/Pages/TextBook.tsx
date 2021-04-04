@@ -1,10 +1,9 @@
 import React from 'react';
-import WordsListContainer from '../components/WordsList/WordsListContainer';
+import WordsContainer from '../components/Words/WordsContainer';
 
 const TextBook:React.FC = () => (
-  <div>
-    <h1>TextBook</h1>
-    <WordsListContainer />
+  <div className="textBookPage">
+    <WordsContainer />
   </div>
 );
 

@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { v4 as uuid } from 'uuid';
 import { AppStateType } from '../../redux/store';
-import WordsList from './WordsList';
-import { getWordsList, setCurrentPage, setCurrentGroup } from '../../redux/wordsList-reducer';
-import styles from './WordList.module.css';
+import WordsList from './WordList/WordsList';
+import { getWordsList, setCurrentPage, setCurrentGroup } from '../../redux/words-reducer';
+import styles from './Words.module.css';
+import WordDescriptionContainer from './WordDescription/WordDescriptionContainer';
 
 type MapStateToPropsType = {
   wordsList: any,
@@ -24,7 +25,7 @@ type MapDispatchToPropsType = {
 
 type PropsType = MapStateToPropsType & MapDispatchToPropsType;
 
-const WordsListContainer: React.FC<PropsType> = ({
+const WordsContainer: React.FC<PropsType> = ({
   wordsList, wordsInGroupCount, groupsCount,
   pageSize, currentPage, currentGroup,
   getWordsList, setCurrentPage, setCurrentGroup,
@@ -78,7 +79,10 @@ const WordsListContainer: React.FC<PropsType> = ({
       <div>
         {pageIndexElements}
       </div>
-      <WordsList wordsList={wordsList} />
+      <div className={styles.words}>
+        <WordDescriptionContainer />
+        <WordsList wordsList={wordsList} />
+      </div>
     </div>
   );
 };
@@ -94,4 +98,4 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
 
 export default connect(mapStateToProps, {
   getWordsList, setCurrentPage, setCurrentGroup,
-})(WordsListContainer);
+})(WordsContainer);
