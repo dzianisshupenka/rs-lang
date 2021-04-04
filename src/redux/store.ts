@@ -1,11 +1,15 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import {
+  applyMiddleware, combineReducers, compose, createStore,
+} from 'redux';
 import thunkMiddleWare from 'redux-thunk';
 import appReducer from './app-reducer';
 import makeWordsGameReducer from './make-word-reducer';
+import wordsListReducer from './wordsList-reducer';
 
 export const rootReducer = combineReducers({
   app: appReducer,
   makeWordsGame: makeWordsGameReducer,
+  words: wordsListReducer,
 });
 
 type RootReducerType = typeof rootReducer;

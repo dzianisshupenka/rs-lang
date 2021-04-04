@@ -7,7 +7,7 @@ import Header from './components/Header/Header';
 import MainPage from './Pages/MainPage/MainPage';
 import Settings from './Pages/Settings/Settings';
 import Statistic from './Pages/Statistic/Statistic';
-import TextBook from './Pages/TextBook/TextBook';
+import TextBook from './Pages/TextBook';
 
 const App:React.FC = () => (
   <div className="page-content">
