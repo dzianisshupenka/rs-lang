@@ -5,6 +5,13 @@ const wordsAPI = {
     const data = await res.json();
     return data;
   },
+
+  async getCurrentWord(id: string) {
+    const getCurrentWordURL = `https://rs-lang-team65.herokuapp.com/words/${id}`;
+    const res = await fetch(getCurrentWordURL);
+    const data = await res.json();
+    return data;
+  },
 };
 
 export default wordsAPI;

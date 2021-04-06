@@ -1,15 +1,17 @@
 import {
   applyMiddleware, combineReducers, compose, createStore,
 } from 'redux';
-import { TypedUseSelectorHook, useSelector } from 'react-redux';
 import thunkMiddleWare from 'redux-thunk';
+import { TypedUseSelectorHook, useSelector } from 'react-redux';
 import appReducer from './app-reducer';
 import makeWordsGameReducer from './make-word-reducer';
+import wordsListReducer from './words-reducer';
 import { UserStateReduser } from './user-reducer';
 
 export const rootReducer = combineReducers({
   app: appReducer,
   makeWordsGame: makeWordsGameReducer,
+  words: wordsListReducer,
   user: UserStateReduser,
 });
 
