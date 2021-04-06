@@ -225,3 +225,72 @@ button:active, button:focus {
 .fullscreen-btn > img {
   width: 35px;
 }
+
+.savanna-wrapper {
+  width: 600px;
+  height: 500px;
+  border-radius: 25px;
+  overflow: hidden;
+  z-index: 6;
+  background-color: #caf0f8ff;
+  position: relative;
+}
+
+.savanna-wrapper > img {
+  position: absolute;
+  top: -100px;
+  left: -120px;
+  height: 600px;
+  transition: all .5s;
+}
+
+.game-content {
+  position: absolute;
+  top: 0;
+  z-index: 8;
+  width: 600px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.377);
+}
+
+.active-word {
+  position: absolute;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: #000;
+  transition: width .2s;
+  overflow: hidden;
+  top: -40px;
+}
+
+.speed-up {
+  transition: transform 2s linear, width .2s;
+}
+
+.savanna-answers {
+  display: flex;
+  flex-direction: row;
+  width: 450px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.answer-word {
+  font-size: 25px;
+  padding: 3px;
+  color: #000;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  transition: all .5s;
+  border-radius: 3px;
+}
+
+.answer-word:hover {
+  background-color: rgba(255, 255, 255, 0.527);
+}

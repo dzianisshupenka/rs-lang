@@ -6,8 +6,8 @@ import { AppStateType } from '../../redux/store';
 import { getWordsForGame } from '../../redux/make-word-reducer';
 import WordInfo from './WordInfo';
 import WordRandomLetters from './WordRandomLetters';
-import fullScreenIcon from '../../../assets/icons/fullscreen.png';
-import exitFullScreenIcon from '../../../assets/icons/exit-fullscreen.png';
+import fullScreenIcon from '../../assets/icons/fullscreen.png';
+import exitFullScreenIcon from '../../assets/icons/exit-fullscreen.png';
 
 type MapStateToPropsType = {
   words: any,
