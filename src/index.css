@@ -78,7 +78,7 @@ color:rgba(0, 195, 255, 0.657);
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #00b4d8ff;
+  background-color: rgba(0, 180, 216, 0.7);
   border-radius: 25px;
   justify-content: center;
 }
@@ -89,7 +89,7 @@ color:rgba(0, 195, 255, 0.657);
 }
 
 .word-info-main-wrapper {
-  background-color: #00b4d8ff;
+  background-color: rgba(0, 180, 216, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -98,13 +98,13 @@ color:rgba(0, 195, 255, 0.657);
 }
 
 .game-stats-wrapper {
-  background-color: rgb(2, 160, 192);
+  background-color: rgba(2, 160, 192, 0.3);
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  font-size: 25px;
+  font-size: 20px;
   color: #fff;
   font-weight: bold;
   flex: 1;
@@ -232,7 +232,7 @@ color:rgba(0, 195, 255, 0.657);
 .fullscreen-btn {
   cursor: pointer;
   border: none;
-  background-color: rgb(2, 160, 192);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .button-wrapper {
@@ -361,6 +361,139 @@ button:active, button:focus {
   width: 35px;
 }
 
+.savanna-wrapper {
+  width: 600px;
+  height: 500px;
+  border-radius: 25px;
+  overflow: hidden;
+  z-index: 6;
+  background-color: rgba(202, 240, 248, 0.6);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+.savanna-wrapper-fullscreen {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(https://www.easylanguageschool.com/wp-content/uploads/edd/2017/09/%D1%82%D0%B8%D0%BF%D0%B8%D1%87%D0%BD%D1%8B%D0%B5-%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B8-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%D0%B2%D0%BE%D1%80%D1%8F%D1%89%D0%B8%D1%85-%D0%B2-%D0%B0%D0%BD%D0%B3%D0%BB%D0%B8%D0%B9%D1%81%D0%BA%D0%BE%D0%BC.jpg);
+  background-size: cover;
+}
+
+.savanna-wrapper > img {
+  position: absolute;
+  top: -100px;
+  left: -120px;
+  height: 600px;
+  transition: all .5s;
+}
+
+.savanna-welcome-bye {
+  z-index: 8;
+  height: 100%;
+  display: flex;
+  color: black;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.savanna-welcome-bye > .make-words-description {
+  color: black;
+}
+
+.game-content {
+  position: absolute;
+  top: 0;
+  z-index: 8;
+  width: 600px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.377);
+}
+.game-content-fullscreen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.words-catcher {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 25px;
+  z-index: 8;
+}
+
+.words-catcher > img {
+  width: 40px;
+}
+
+.words-catcher > span {
+  position: absolute;
+  font-size: 15px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.lifes-wrapper {
+  position: absolute;
+  right: 15px;
+  z-index: 8;
+}
+
+.lifes-wrapper > img {
+  width: 35px;
+  margin: 3px;
+}
+
+.stats-main {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+}
+
+.active-word {
+  position: absolute;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: #000;
+  transition: width .2s;
+  overflow: hidden;
+  top: -40px;
+}
+
+.savanna-answers {
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+  align-items: center;
+  justify-content: space-around;
+  flex: 10
+}
+
+.answer-word {
+  font-size: 22px;
+  padding: 2px;
+  color: #000;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  transition: all .5s;
+  border-radius: 3px;
+}
+
+.answer-word:hover {
+  background-color: rgba(255, 255, 255, 0.527);
+}
 .textBookPage {
   background-color: rgba(255, 255, 255, 0.7);
   width: 100%;

@@ -2,7 +2,7 @@ import React from 'react';
 import preloader from '../../../assets/preloader.gif';
 
 const Preloader = () => (
-  <img src={preloader} alt="loading" width="100px" />
+  <img src={preloader} alt="loading" width="100px" height="100px" />
 );
 
 export default Preloader;
