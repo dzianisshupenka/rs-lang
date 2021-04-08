@@ -6,8 +6,7 @@ import { AppStateType } from '../../redux/store';
 import { getWordsForGame } from '../../redux/make-word-reducer';
 import WordInfo from './WordInfo';
 import WordRandomLetters from './WordRandomLetters';
-import fullScreenIcon from '../../assets/icons/fullscreen.png';
-import exitFullScreenIcon from '../../assets/icons/exit-fullscreen.png';
+import GameStatsBar from '../Common/GameStatsBar/GameStatsBar';
 
 type MapStateToPropsType = {
   words: any,
@@ -129,25 +128,14 @@ const MakeWordGame:React.FC<PropsType> = ({ words, getWordsForGame }: PropsType)
     ? (
       <FullScreen handle={handle}>
         <div className={wrapperStyles.join(' ')}>
-          <div className="game-stats-wrapper">
-            <span>
-              Correctly:
-              {correctWords}
-            </span>
-            <span>
-              Correct in a row:
-              {maxCorrectInARow}
-            </span>
-            <span>
-              Error:
-              {errors}
-            </span>
-            <span>
-              Total:
-              {correctWords + errors}
-            </span>
-            <button className="fullscreen-btn" type="button" onClick={() => (handle.active ? handle.exit() : handle.enter())}><img src={handle.active ? exitFullScreenIcon : fullScreenIcon} alt="fullscreen" /></button>
-          </div>
+          <GameStatsBar
+            correctWords={correctWords}
+            errors={errors}
+            maxCorrectInARow={maxCorrectInARow}
+            handleActive={handle.active}
+            handleEnter={() => handle.enter()}
+            handleExit={() => handle.exit()}
+          />
           {words.length > wordIndex ? <WordInfo word={words[wordIndex]} /> : 'the end'}
           <div className="word-letters">
             <WordRandomLetters
@@ -159,19 +147,17 @@ const MakeWordGame:React.FC<PropsType> = ({ words, getWordsForGame }: PropsType)
           </div>
         </div>
       </FullScreen>
-
     )
     : (
       <FullScreen handle={handle}>
-        <div className="make-words-wrapper">
-          <div className="make-words-description">В этой игре вам предстоит собрать перевод слова, используя предоставленные буквы</div>
+        <div className={wrapperStyles.join(' ')}>
+          <div className="make-words-description">{gameOver ? '' : 'В этой игре вам предстоит собрать перевод слова, используя предоставленные буквы'}</div>
           <div className="make-words-description">{gameOver ? `Игра окончена! Правильных слов: ${correctWords}, лучшая серия правильных ответов: ${maxCorrectInARow}, ошибок: ${errors}, всего слов: ${correctWords + errors}` : ''}</div>
           <div className="make-words-description">
             <button className="start-game-btn" type="button" onClick={startGameHandler}>{gameOver ? 'Начать новую игру' : 'Начать игру'}</button>
           </div>
         </div>
       </FullScreen>
-
     );
 };
 
