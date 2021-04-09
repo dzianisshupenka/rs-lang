@@ -50,6 +50,7 @@ const SavannaGame:React.FC<PropsType> = ({
   const [maxCorrectInARow, setMaxCorrectInARow] = useState<number>(0);
   const [height, setHeight] = useState(500);
   const [isRunnug, setIsRunning] = useState(false);
+  const [timer, setTimer] = useState(0);
 
   const handle = useFullScreenHandle();
 
@@ -73,7 +74,7 @@ const SavannaGame:React.FC<PropsType> = ({
       setBorder(6);
     }, 200);
     setWidth(0);
-    setSpeed(0.5);
+    setSpeed(5);
   };
 
   const move = () => {
@@ -84,6 +85,37 @@ const SavannaGame:React.FC<PropsType> = ({
     setX5(MoveDecor(x5));
     setX6(MoveDecor(x6));
   };
+
+  if (top >= (height - 70)) {
+    if (borderColor === 'red') {
+      const newLifes = lifes;
+      newLifes.pop();
+      setLifes(newLifes);
+      setWrongAnswers([...wrongAnswers, words[wordInd]]);
+      setCorrectInARow(0);
+    } else if (borderColor === 'green') {
+      setCorrectWords([...correctWords, words[wordInd]]);
+      setCorrectInARow((prev) => prev + 1);
+    }
+    if (lifes.length === 0) {
+      setGameOver(true);
+      setIsRunning(false);
+    }
+    if (wordInd === words.length - 1) {
+      setGameOver(true);
+      setIsRunning(false);
+    }
+
+    setTop(-80);
+    setWidth(300);
+    setSpeed(0);
+    setBorderColor('red');
+    setTimeout(() => {
+      setBorder(0);
+    }, 200);
+    setWordInd(wordInd + 1);
+    move();
+  }
 
   useEffect(() => {
     if (handle.active) {
@@ -97,49 +129,20 @@ const SavannaGame:React.FC<PropsType> = ({
     if (speed > 0 && top < height) {
       setTop((prev) => prev + speed);
     }
-  }, [top]);
+  }, [timer]);
 
   useEffect(() => {
     getWordsForGame(page, group);
     setWordInd(0);
     const timer = isRunnug ? setInterval(() => {
       setTop((prev) => prev + 1);
+      setTimer((prev) => prev + 1);
     }, 15) : null;
     if (gameOver && timer) {
       clearInterval(timer);
     }
     return () => (timer ? clearInterval(timer) : setGameOver(false));
   }, [gameOver, isRunnug]);
-
-  if (top >= (height - 80)) {
-    if (borderColor === 'red') {
-      const newLifes = lifes;
-      newLifes.pop();
-      setLifes(newLifes);
-      setWrongAnswers([...wrongAnswers, words[wordInd]]);
-      setCorrectInARow(0);
-    } else {
-      setCorrectWords([...correctWords, words[wordInd]]);
-      setCorrectInARow((prev) => prev + 1);
-    }
-    if (lifes.length === 0) {
-      setGameOver(true);
-      setIsRunning(false);
-    }
-    if (wordInd === words.length) {
-      setGameOver(true);
-      setIsRunning(false);
-    }
-
-    setTop(-80);
-    setWidth(300);
-    setSpeed(0);
-    setTimeout(() => {
-      setBorder(0);
-    }, 200);
-    setWordInd(wordInd + 1);
-    move();
-  }
 
   const getAnswers = () => {
     if (words.length) {
@@ -255,7 +258,7 @@ const SavannaGame:React.FC<PropsType> = ({
                   }}
                   className="active-word"
                 >
-                  {words.length ? words[wordInd].word : 'loading'}
+                  {words.length && wordInd < words.length ? words[wordInd].word : 'loading'}
                 </div>
                 <div className="savanna-answers">
                   {answers.length
