@@ -7,12 +7,16 @@ import appReducer from './app-reducer';
 import makeWordsGameReducer from './make-word-reducer';
 import wordsListReducer from './words-reducer';
 import { UserStateReduser } from './user-reducer';
+import textbookSettingsReducer from './textbook-settings-reducer';
+import dictionaryReducer from './dictionary-reducer';
 
 export const rootReducer = combineReducers({
   app: appReducer,
   makeWordsGame: makeWordsGameReducer,
   words: wordsListReducer,
   user: UserStateReduser,
+  textbookSettings: textbookSettingsReducer,
+  dictionary: dictionaryReducer,
 });
 
 type RootReducerType = typeof rootReducer;
