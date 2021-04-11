@@ -345,7 +345,7 @@ color:rgba(0, 195, 255, 0.657);
 
 .main__buttons-list-border a{
   text-decoration: none;
-  color: #000; 
+  color: #000;
 }
 
 .main__buttons-list-border:hover{
@@ -500,4 +500,23 @@ button:active, button:focus {
   position: relative;
   top: 7%;
   z-index: 0;
+}
+
+.group1 {
+  background-color: red;
+}
+.group2 {
+  background-color: blue;
+}
+.group3 {
+  background-color: violet;
+}
+.group4 {
+  background-color: yellow;
+}
+.group5 {
+  background-color: green;
+}
+.group6 {
+  background-color: pink;
 }
