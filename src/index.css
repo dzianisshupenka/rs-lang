@@ -67,8 +67,8 @@ color:rgba(0, 195, 255, 0.657);
 .games-wrapper {
   width: 100%;
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
@@ -150,9 +150,10 @@ color:rgba(0, 195, 255, 0.657);
 .game-link {
   background-color: #0077b6ff;
   border-radius: 5px;
-  margin: 10px;
-  padding: 5px;
+  margin: 8px;
+  padding: 4px;
   text-decoration: none;
+  border: none;
   font-size: 25px;
   color: #fff;
   transform: scale(.95);
@@ -166,7 +167,6 @@ color:rgba(0, 195, 255, 0.657);
 
 .game-wrapper {
   display: flex;
-  flex: 8;
 }
 
 .word-letters {
@@ -494,6 +494,22 @@ button:active, button:focus {
 .answer-word:hover {
   background-color: rgba(255, 255, 255, 0.527);
 }
+
+.choose-game-wrapper {
+  width: 600px;
+  height: 500px;
+  background-color: rgba(202, 240, 248, 0.8);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.choose-game-wrapper > h2 {
+  color: #0077b6ff;
+}
+
 .textBookPage {
   background-color: rgba(255, 255, 255, 0.7);
   width: 100%;
