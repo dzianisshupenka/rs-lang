@@ -10,6 +10,8 @@ import GameStatsBar from '../Common/GameStatsBar/GameStatsBar';
 
 type MapStateToPropsType = {
   words: any,
+  group: number,
+  page: number,
 };
 
 type MapDispatchToPropsType = {
@@ -18,7 +20,9 @@ type MapDispatchToPropsType = {
 
 type PropsType = MapStateToPropsType & MapDispatchToPropsType;
 
-const MakeWordGame:React.FC<PropsType> = ({ words, getWordsForGame }: PropsType) => {
+const MakeWordGame:React.FC<PropsType> = ({
+  words, getWordsForGame, group, page,
+}: PropsType) => {
   const [isRunnug, setIsRunning] = useState<boolean>(false);
   const [correctInARow, setCorrectInARow] = useState<number>(0);
   const [maxCorrectInARow, setMaxCorrectInARow] = useState<number>(0);
@@ -103,7 +107,7 @@ const MakeWordGame:React.FC<PropsType> = ({ words, getWordsForGame }: PropsType)
   }, [clickedTime]);
 
   useEffect(() => {
-    getWordsForGame(0, 0);
+    getWordsForGame(page, group);
 
     document.addEventListener('keypress', onKeypress);
 
@@ -163,6 +167,8 @@ const MakeWordGame:React.FC<PropsType> = ({ words, getWordsForGame }: PropsType)
 
 const mapStateToProps = (state: AppStateType) => ({
   words: state.makeWordsGame.words,
+  group: state.words.currentGroup,
+  page: state.words.currentPage,
 });
 
 export default connect(mapStateToProps, { getWordsForGame })(MakeWordGame);
