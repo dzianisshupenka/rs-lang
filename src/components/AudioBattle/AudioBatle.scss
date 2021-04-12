@@ -20,8 +20,6 @@
 }
 
 @mixin commonRepeatAudio($bgSize, $width, $heigt) {
-  // background-image: url(../../../assets/speaker.png);
-
   background-image: url(../../assets/icons/audio.svg);
   background-position: center;
   background-color: aliceblue;
