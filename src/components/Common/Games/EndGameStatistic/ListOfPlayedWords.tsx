@@ -1,4 +1,7 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { playAudio } from '../CommonFuncs';
 import './listOfPlayedWords.css';
 import CustomButton from '../CustomButton';
@@ -13,6 +16,8 @@ import {
   LISTOFPLAYEDWORDS_WORDTRANSLATE,
 } from '../Const';
 import { EndGameStatisticElement } from '../Types';
+import store from '../../../../redux/store';
+import { setCurrentPage, setCurrentGroup, setCurrentWordID } from '../../../../redux/words-reducer';
 
 type Props = {
   listOfPlayedWords: EndGameStatisticElement[];
@@ -22,9 +27,19 @@ enum PlayedWordsGroupType {
   answered = 'answered',
   unanswered = 'unanswered',
 }
+
+const setWordGlobalInfo = (page: number, group: number, wordId: string) => {
+  store.dispatch(setCurrentPage(page));
+  store.dispatch(setCurrentGroup(group));
+  store.dispatch(setCurrentWordID(wordId));
+  localStorage.setItem('currentPage', String(page));
+  localStorage.setItem('currentGroup', String(group));
+};
+
 const groppedList = (
   groupOfWords: EndGameStatisticElement[],
   groupType: PlayedWordsGroupType,
+  changeRoute: Function,
 ) => (groupOfWords.length
   ? (
     <ul className={LISTOFPLAYEDWORDS_GROUP}>
@@ -46,8 +61,13 @@ const groppedList = (
             className={REPEATAUDIO_LIST}
             onClickHandler={() => playAudio(wordObj.audio)}
           />
-          {/* <a href="/"><span className={LISTOFPLAYEDWORDS_WORD}>{wordObj.word}</span></a> */}
-          <span className={LISTOFPLAYEDWORDS_WORD}>
+          <span
+            className={LISTOFPLAYEDWORDS_WORD}
+            onClick={() => {
+              setWordGlobalInfo(wordObj.page, wordObj.group, wordObj.id);
+              changeRoute('/textbook');
+            }}
+          >
             {`${wordObj.word} `}
           </span>
           <span className={LISTOFPLAYEDWORDS_WORDTRANSLATE}>
@@ -64,21 +84,25 @@ const groppedList = (
   )
 );
 
-// todo ссылки на слова в словаре
-const ListOfPlayedWords = ({ listOfPlayedWords }: Props) => (
-  <div className={LISTOFPLAYEDWORDS}>
-    <div className={`${LISTOFPLAYEDWORDS}__wrapper`}>
-      Результат игры:
-      {groppedList(
-        listOfPlayedWords.filter((wordsObj) => wordsObj.answerResult === true),
-        PlayedWordsGroupType.answered,
-      )}
-      {groppedList(
-        listOfPlayedWords.filter((wordsObj) => wordsObj.answerResult === false),
-        PlayedWordsGroupType.unanswered,
-      )}
+const ListOfPlayedWords = ({ listOfPlayedWords }: Props) => {
+  const history = useHistory();
+  return (
+    <div className={LISTOFPLAYEDWORDS}>
+      <div className={`${LISTOFPLAYEDWORDS}__wrapper`}>
+        Результат игры:
+        {groppedList(
+          listOfPlayedWords.filter((wordsObj) => wordsObj.answerResult === true),
+          PlayedWordsGroupType.answered,
+          history.push,
+        )}
+        {groppedList(
+          listOfPlayedWords.filter((wordsObj) => wordsObj.answerResult === false),
+          PlayedWordsGroupType.unanswered,
+          history.push,
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default ListOfPlayedWords;
