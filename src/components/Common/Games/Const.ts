@@ -14,6 +14,7 @@ const ANSWERRESULTSTYLES = {
   ANSWERBUTTON__WRONG: `${AUDIOBATTLE}__answer-button_wrong`,
   ANSWERBUTTON__UNAVAILABLE: `${AUDIOBATTLE}__answer-button_unavailable`,
   ANSWERBUTTON__RIGHT: `${AUDIOBATTLE}__answer-button_right`,
+  ANSWERBUTTON__WORD_IMAGE: `${AUDIOBATTLE}__word-image`,
 };
 
 const LISTOFPLAYEDWORDS = 'ListOfPlayedWords';

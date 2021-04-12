@@ -15,15 +15,24 @@ a:visited {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: #00b4d8ff;
   width: 85vw;
+  height: 70vh;
   position: relative;
+  align-items: center;
+  background-color: rgba(0, 180, 216, 0.7);
+  border-radius: 25px;
+  padding: 2%;
+  overflow: hidden;
+}
+
+.audio-battle__word-image {
+  border-radius: 50px;
+  margin-bottom: 1%;
 }
 
 .audio-battle__control-button_default {
@@ -104,14 +113,15 @@ a:visited {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  height: 360px;
   -webkit-animation: showAnswer 0.3s linear;
           animation: showAnswer 0.3s linear;
 }
@@ -170,14 +180,15 @@ a:visited {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .audio-battle__repeat-audio-list {
@@ -250,10 +261,18 @@ a:visited {
 
 .audio-battle__game-status {
   color: white;
+  font-size: 34px;
+  font-weight: 600;
+  font-style: normal;
+  text-align: center;
 }
 
 .audio-battle__info {
   color: white;
+  font-size: 24px;
+  font-weight: 500;
+  font-style: normal;
+  text-align: center;
 }
 
 .audio-battle__answers-container {
@@ -430,18 +449,6 @@ a:visited {
       -ms-flex-align: center;
           align-items: center;
   margin-right: 5px;
-}
-
-table,
-tr,
-td,
-thead {
-  border: 2px solid white;
-  color: black;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  text-align: auto;
 }
 
 .preloader {

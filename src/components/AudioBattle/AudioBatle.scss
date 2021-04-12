@@ -26,11 +26,22 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  background-color: #00b4d8ff;
   width: 85vw;
+  height: 70vh;
   position: relative;
+  align-items: center;
+  background-color: rgba(0, 180, 216, 0.7);
+  border-radius: 25px;
+  padding: 2%;
+  overflow: hidden;
+
+  &__word-image {
+    border-radius: 50px;
+    margin-bottom: 1%;
+
+  }
 
   &__control-button_default {
     @include commonAnswerButtonStyle(24px);
@@ -49,9 +60,10 @@
     transform: scale(1);
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    height: 360px;
     animation: showAnswer 0.3s linear;
   }
 
@@ -76,9 +88,11 @@
   &__word {
     display: flex;
     flex-direction: row;
-    justify-content: start;
     align-items: center;
     flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+
   }
   &__repeat-audio-list {
     @include commonRepeatAudio(65%, 25px, 25px);
@@ -95,11 +109,11 @@
   }
 
   &__game-status {
-    color: white;
+    @include gameStatusText;
   }
 
   &__info {
-    color: white;
+    @include gameInfoText;
   }
 
   &__answers-container {
@@ -155,14 +169,6 @@
     align-items: center;
     margin-right: 5px;
   }
-}
-
-table,
-tr,
-td,
-thead {
-  border: 2px solid white;
-  @include standartText(16px);
 }
 
 .preloader {

@@ -213,7 +213,7 @@ const AudioBatle = ({ page, group }: Props) => {
                 : 'audio-battle__word-prompt_hidden'
             }
           >
-            <img src={CurrentPlayedWord?.image} alt="not loaded" />
+            <img className={ANSWERRESULTSTYLES.ANSWERBUTTON__WORD_IMAGE} src={CurrentPlayedWord?.image} alt="not loaded" />
             <div className={WORD}>
               <CustomButton
                 className={REPEATAUDIO_SMALL}
