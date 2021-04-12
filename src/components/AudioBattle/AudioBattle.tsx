@@ -6,18 +6,17 @@ import { connect } from 'react-redux';
 import { AppStateType } from '../../redux/store';
 import CustomButton from '../Common/Games/CustomButton';
 import AnswerButtons from '../Common/Games/AnswerButton';
-import StatTable from '../Common/Games/EndGameStatistic/StatTable';
 import ListOfPlayedWords from '../Common/Games/EndGameStatistic/ListOfPlayedWords';
 
 import {
   playAudio,
   getRandomPlayableWordObject,
   insertNewCounterOfRightAnswers,
-  getNumOfRightAnswers,
-  getNumOfWrongAnswers,
-  getNumOfPlayedWords,
-  getMaxRightAnswersInARow,
-  getNumOfSkippedWords,
+  // getNumOfRightAnswers,
+  // getNumOfWrongAnswers,
+  // getNumOfPlayedWords,
+  // getMaxRightAnswersInARow,
+  // getNumOfSkippedWords,
   getNewListOfWords,
   getArrayLastIndex,
 } from '../Common/Games/CommonFuncs';
@@ -61,7 +60,6 @@ const AudioBatle = ({ page, group }: Props) => {
     answerResult: false,
     answers: [],
   });
-  const [showGameResult, setShowGameResult] = useState(true);
 
   const currentPage = useRef(page);
   const correctAnswersInARow = useRef([0]);
@@ -152,10 +150,6 @@ const AudioBatle = ({ page, group }: Props) => {
     setNextWordHandler(listOfWords);
   };
 
-  const setShowGameResultHandler = () => {
-    setShowGameResult((curren) => !curren);
-  };
-
   return (
     <div className={AUDIOBATTLE}>
       {gameStatus === GameStatus.inProcess && (
@@ -167,45 +161,40 @@ const AudioBatle = ({ page, group }: Props) => {
       )}
       <h2 className={GAMESTATUS}>{gameStatus}</h2>
       {gameStatus === GameStatus.loading && <div className="preloader" />}
-      {gameStatus === GameStatus.finished && showGameResult && (
-        <>
-          <StatTable
-            arrayOfData={[
-              {
-                name: 'Удачные попытки, %',
-                value: Math.round(
-                  (100 * getNumOfRightAnswers(listOfWords))
-                    / getNumOfPlayedWords(listOfWords),
-                ),
-              },
-              {
-                name: 'Неудачные попытки, %',
-                value: Math.round(
-                  (100 * getNumOfWrongAnswers(listOfWords))
-                    / getNumOfPlayedWords(listOfWords),
-                ),
-              },
-              {
-                name: 'Пропущено слов, %',
-                value: Math.round(
-                  (100 * getNumOfSkippedWords(listOfWords))
-                    / getNumOfPlayedWords(listOfWords),
-                ),
-              },
-              {
-                name: 'Всего слов',
-                value: getNumOfPlayedWords(listOfWords),
-              },
-              {
-                name: 'Максимум правильных ответов подряд',
-                value: getMaxRightAnswersInARow(correctAnswersInARow.current),
-              },
-            ]}
-          />
-        </>
-      )}
 
-      {gameStatus === GameStatus.finished && !showGameResult && (
+      {/* [
+        {
+          name: 'Удачные попытки, %',
+          value: Math.round(
+            (100 * getNumOfRightAnswers(listOfWords))
+              / getNumOfPlayedWords(listOfWords),
+          ),
+        },
+        {
+          name: 'Неудачные попытки, %',
+          value: Math.round(
+            (100 * getNumOfWrongAnswers(listOfWords))
+              / getNumOfPlayedWords(listOfWords),
+          ),
+        },
+        {
+          name: 'Пропущено слов, %',
+          value: Math.round(
+            (100 * getNumOfSkippedWords(listOfWords))
+              / getNumOfPlayedWords(listOfWords),
+          ),
+        },
+        {
+          name: 'Всего слов',
+          value: getNumOfPlayedWords(listOfWords),
+        },
+        {
+          name: 'Максимум правильных ответов подряд',
+          value: getMaxRightAnswersInARow(correctAnswersInARow.current),
+        },
+      ] */}
+
+      {gameStatus === GameStatus.finished && (
         <>
           <ListOfPlayedWords
             listOfPlayedWords={listOfWords.filter(
@@ -213,14 +202,6 @@ const AudioBatle = ({ page, group }: Props) => {
             )}
           />
         </>
-      )}
-
-      {gameStatus === GameStatus.finished && (
-        <CustomButton
-          value={showGameResult ? 'Показать слова' : 'показать статистику'}
-          className={CONTROLBUTTON_DEFAULT}
-          onClickHandler={() => setShowGameResultHandler()}
-        />
       )}
 
       {gameStatus === GameStatus.inProcess && (
