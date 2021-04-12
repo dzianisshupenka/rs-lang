@@ -1,8 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import './AudioBatle.css';
 
 import React, { useEffect, useRef, useState } from 'react';
 
+import { connect } from 'react-redux';
+import { AppStateType } from '../../redux/store';
 import CustomButton from '../Common/Games/CustomButton';
 import AnswerButtons from '../Common/Games/AnswerButton';
 import StatTable from '../Common/Games/EndGameStatistic/StatTable';
@@ -294,4 +295,9 @@ const AudioBatle = ({ page, group }: Props) => {
   );
 };
 
-export default AudioBatle;
+const mapStateToProps = (state: AppStateType) => ({
+  page: state.words.currentPage,
+  group: state.words.currentGroup,
+});
+
+export default connect(mapStateToProps)(AudioBatle);

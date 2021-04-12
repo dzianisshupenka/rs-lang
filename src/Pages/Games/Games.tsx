@@ -12,7 +12,7 @@ const Games:React.FC = () => (
         <Route path="/games/" exact component={ChooseGame} />
         <Route path="/games/make-word" component={MakeWordGame} />
         <Route path="/games/savanna" component={SavannaGame} />
-        <Route path="/games/audio-battle"><AudioBatle page={1} group={0} /></Route>
+        <Route path="/games/audio-battle" component={AudioBatle} />
       </Switch>
     </div>
   </div>
