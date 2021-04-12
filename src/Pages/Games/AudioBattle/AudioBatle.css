@@ -41,10 +41,10 @@
 
 .audio-battle__control-button_default:hover {
   cursor: pointer;
-  opacity: .8;
+  opacity: 0.8;
 }
 
-.audio-battle__control-button_default:Active {
+.audio-battle__control-button_default:active {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
@@ -75,10 +75,10 @@
 
 .audio-battle__control-button_end-game:hover {
   cursor: pointer;
-  opacity: .8;
+  opacity: 0.8;
 }
 
-.audio-battle__control-button_end-game:Active {
+.audio-battle__control-button_end-game:active {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
@@ -105,8 +105,8 @@
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-animation: showAnswer .3s linear;
-          animation: showAnswer .3s linear;
+  -webkit-animation: showAnswer 0.3s linear;
+          animation: showAnswer 0.3s linear;
 }
 
 @-webkit-keyframes showAnswer {
@@ -174,11 +174,12 @@
 }
 
 .audio-battle__repeat-audio-list {
-  background-image: url(../../../assets/speaker.png);
+  background-image: url(../../../assets/icons/audio.svg);
+  background-position: center;
+  background-color: aliceblue;
+  border-radius: 50%;
   background-repeat: no-repeat;
-  background-size: 50%;
-  background-position: 10px;
-  background-color: transparent;
+  background-size: 65%;
   border: none;
   width: 25px;
   height: 25px;
@@ -189,20 +190,21 @@
   opacity: 0.8;
 }
 
-.audio-battle__repeat-audio-list:Active {
+.audio-battle__repeat-audio-list:active {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
 
 .audio-battle__repeat-audio_small {
-  background-image: url(../../../assets/speaker.png);
+  background-image: url(../../../assets/icons/audio.svg);
+  background-position: center;
+  background-color: aliceblue;
+  border-radius: 50%;
   background-repeat: no-repeat;
-  background-size: 72%;
-  background-position: 10px;
-  background-color: transparent;
+  background-size: 65%;
   border: none;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 
 .audio-battle__repeat-audio_small:hover {
@@ -210,23 +212,19 @@
   opacity: 0.8;
 }
 
-.audio-battle__repeat-audio_small:Active {
+.audio-battle__repeat-audio_small:active {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
 
 .audio-battle__repeat-audio_big {
-  background-image: url(../../../assets/speaker.png);
+  background-image: url(../../../assets/icons/audio.svg);
+  background-position: center;
+  background-color: aliceblue;
+  border-radius: 50%;
   background-repeat: no-repeat;
-  background-size: 72%;
-  background-position: 10px;
-  background-color: transparent;
+  background-size: 65%;
   border: none;
-  width: 100px;
-  height: 100px;
-  -webkit-box-ordinal-group: none;
-      -ms-flex-order: none;
-          order: none;
   width: 150px;
   height: 150px;
   margin: 105px;
@@ -238,7 +236,7 @@
   opacity: 0.8;
 }
 
-.audio-battle__repeat-audio_big:Active {
+.audio-battle__repeat-audio_big:active {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
@@ -291,10 +289,10 @@
 
 .audio-battle__answer-button_default:hover {
   cursor: pointer;
-  opacity: .8;
+  opacity: 0.8;
 }
 
-.audio-battle__answer-button_default:Active {
+.audio-battle__answer-button_default:active {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
@@ -322,10 +320,10 @@
 
 .audio-battle__answer-button_wrong:hover, .audio-battle__answer-button_unavailable:hover {
   cursor: pointer;
-  opacity: .8;
+  opacity: 0.8;
 }
 
-.audio-battle__answer-button_wrong:Active, .audio-battle__answer-button_unavailable:Active {
+.audio-battle__answer-button_wrong:active, .audio-battle__answer-button_unavailable:active {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
@@ -353,10 +351,10 @@
 
 .audio-battle__answer-button_wrong:hover {
   cursor: pointer;
-  opacity: .8;
+  opacity: 0.8;
 }
 
-.audio-battle__answer-button_wrong:Active {
+.audio-battle__answer-button_wrong:active {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
@@ -383,10 +381,10 @@
 
 .audio-battle__answer-button_right:hover {
   cursor: pointer;
-  opacity: .8;
+  opacity: 0.8;
 }
 
-.audio-battle__answer-button_right:Active {
+.audio-battle__answer-button_right:active {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
 }
@@ -427,7 +425,10 @@
   margin-right: 5px;
 }
 
-table, tr, td, thead {
+table,
+tr,
+td,
+thead {
   border: 2px solid white;
   color: white;
   font-size: 16px;
