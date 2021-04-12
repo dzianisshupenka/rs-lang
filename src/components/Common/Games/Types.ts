@@ -5,6 +5,9 @@ type AnswerButtonProps = {
 };
 
 type AudioBattleWordForRound = {
+  id: string;
+  group: number;
+  page: number;
   word: string;
   wordTranslate: string;
   image: string;
@@ -22,5 +25,17 @@ type ButtonProps = {
   className?: string;
   value?: string;
 };
+
+type EndGameStatisticElement = {
+  id: string;
+  group: number;
+  page: number;
+  word: string;
+  wordTranslate: string;
+  audio: string;
+  answerResult: boolean;
+};
 // eslint-disable-next-line import/prefer-default-export
-export type { AnswerButtonProps, AudioBattleWordForRound, ButtonProps };
+export type {
+  AnswerButtonProps, AudioBattleWordForRound, ButtonProps, EndGameStatisticElement,
+};

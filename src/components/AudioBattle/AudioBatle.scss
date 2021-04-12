@@ -1,45 +1,25 @@
-@mixin commonAnswerButtonStyle($fontSize) {
-  height: 30px;
-  display: flex;
-  margin: 5px;
-  font-size: $fontSize;
-  color: #fff;
-  font-weight: bold;
-  border-radius: 3px;
-  border: 1px solid white;
-  align-items: center;
-  justify-content: center;
-  background-color: #0077b6ff;
-  &:hover {
-    cursor: pointer;
-    opacity: .8;
-  }
-  &:Active{
-    transform: scale(0.9);
-  }
-}
+@import '../Common/Games/styles/components';
+@import '../Common/Games/styles/commonStyles';
 
 @mixin commonRepeatAudio($bgSize, $width, $heigt) {
-  background-image: url(../../../assets/speaker.png);
+  background-image: url(../../assets/icons/audio.svg);
+  background-position: center;
+  background-color: aliceblue;
+  border-radius: 50%;
+
   background-repeat: no-repeat;
   background-size: $bgSize;
-  background-position: 10px;
-  background-color: transparent;
+
   border: none;
   width: $width;
-    height: $heigt;
-    &:hover{
-      cursor: pointer;
-      opacity: 0.8;
-    }
-    &:Active{
-      transform: scale(0.9);
-    }
-}
-
-@mixin standartText($fontSize) {
-  color: white;
-  font-size: $fontSize;
+  height: $heigt;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  &:active {
+    transform: scale(0.9);
+  }
 }
 
 .audio-battle {
@@ -54,71 +34,71 @@
 
   &__control-button_default {
     @include commonAnswerButtonStyle(24px);
-
   }
-  &__control-button_end-game{
+  &__control-button_end-game {
     @include commonAnswerButtonStyle(24px);
     background-color: salmon;
     position: absolute;
     top: 0px;
     right: 0px;
   }
-  &__word-prompt_hidden{
+  &__word-prompt_hidden {
     display: none;
   }
-  &__word-prompt_visible{
+  &__word-prompt_visible {
     transform: scale(1);
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
     flex-wrap: wrap;
-    animation: showAnswer .3s linear;
+    animation: showAnswer 0.3s linear;
   }
 
   @keyframes showAnswer {
-		0%   { transform:   scale(0.3); }
-		25%  { transform:  scale(0.7); }
-		50%  { transform:  scale(1); }
-		75%  { transform:  scale(1.2); }
-		100% {transform: scale(1); }
-	}
+    0% {
+      transform: scale(0.3);
+    }
+    25% {
+      transform: scale(0.7);
+    }
+    50% {
+      transform: scale(1);
+    }
+    75% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 
-  &__word{
+  &__word {
     display: flex;
     flex-direction: row;
     justify-content: start;
     align-items: center;
     flex-wrap: wrap;
   }
-  &__repeat-audio-list{
-    @include commonRepeatAudio(50%, 25px, 25px);
-
+  &__repeat-audio-list {
+    @include commonRepeatAudio(65%, 25px, 25px);
   }
 
-  &__repeat-audio_small{
-    @include commonRepeatAudio(72%, 100px, 100px);
-
+  &__repeat-audio_small {
+    @include commonRepeatAudio(65%, 80px, 80px);
   }
 
-  &__repeat-audio_big{
-    @include commonRepeatAudio(72%, 100px, 100px);
-    order: none;
-    width: 150px;
-    height: 150px;
+  &__repeat-audio_big {
+    @include commonRepeatAudio(65%, 150px, 150px);
     margin: 105px;
     padding: 0;
   }
-  // &__repeat-audio_small:hover,
-  // &__repeat-audio_big:hover{
-  //   cursor: pointer;
-  // }
 
-  &__game-status{
+  &__game-status {
     color: white;
   }
 
-  &__info{
+  &__info {
     color: white;
   }
 
@@ -129,7 +109,6 @@
     align-items: center;
     flex-wrap: wrap;
   }
-
 
   &__answer-button_default {
     @include commonAnswerButtonStyle(16px);
@@ -152,7 +131,7 @@
 
   &__answer-button_default::before,
   &__answer-button_wrong::before,
-  &__answer-button_unavailable::before{
+  &__answer-button_unavailable::before {
     content: attr(data-number);
     color: honeydew;
     width: 20px;
@@ -178,33 +157,18 @@
   }
 }
 
-table, tr, td, thead{
-	border: 2px solid white;
-	@include standartText(16px);
+table,
+tr,
+td,
+thead {
+  border: 2px solid white;
+  @include standartText(16px);
 }
 
-.ListOfPlayedWords{
-  margin: 0;
-  padding: 0%;
-  overflow: auto;
-  // min-height: 200px;
-  max-height: 100%;
-
-  &__list-item {
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
-    align-items: center;
-    list-style: none;
-    background-color: rgba(0, 119, 182,  1.0);
-
-    &:hover{
-      background-color: rgba( 0, 119, 182,  0.8);
-      cursor: pointer;
-    }
-
-  }
-  &__word-translate{
-    @include standartText(16px);
-  }
+.preloader {
+  background-image: url(../../assets/preloader.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100px;
+  height: 100px;
 }
