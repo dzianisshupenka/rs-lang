@@ -468,4 +468,12 @@ thead {
   color: white;
   font-size: 16px;
 }
+
+.preloader {
+  background-image: url(../../assets/preloader.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100px;
+  height: 100px;
+}
 /*# sourceMappingURL=AudioBatle.css.map */

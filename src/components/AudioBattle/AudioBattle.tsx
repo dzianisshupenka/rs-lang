@@ -153,7 +153,6 @@ const AudioBatle = ({ page, group }: Props) => {
   };
 
   return (
-
     <div className={AUDIOBATTLE}>
       {gameStatus === GameStatus.inProcess && (
         <CustomButton
@@ -163,26 +162,30 @@ const AudioBatle = ({ page, group }: Props) => {
         />
       )}
       <h2 className={GAMESTATUS}>{gameStatus}</h2>
-      {(gameStatus === GameStatus.finished && showGameResult) && (
+      {gameStatus === GameStatus.loading && <div className="preloader" />}
+      {gameStatus === GameStatus.finished && showGameResult && (
         <>
           <StatTable
             arrayOfData={[
               {
                 name: 'Удачные попытки, %',
                 value: Math.round(
-                  (100 * getNumOfRightAnswers(listOfWords)) / getNumOfPlayedWords(listOfWords),
+                  (100 * getNumOfRightAnswers(listOfWords))
+                    / getNumOfPlayedWords(listOfWords),
                 ),
               },
               {
                 name: 'Неудачные попытки, %',
                 value: Math.round(
-                  (100 * getNumOfWrongAnswers(listOfWords)) / getNumOfPlayedWords(listOfWords),
+                  (100 * getNumOfWrongAnswers(listOfWords))
+                    / getNumOfPlayedWords(listOfWords),
                 ),
               },
               {
                 name: 'Пропущено слов, %',
                 value: Math.round(
-                  (100 * getNumOfSkippedWords(listOfWords)) / getNumOfPlayedWords(listOfWords),
+                  (100 * getNumOfSkippedWords(listOfWords))
+                    / getNumOfPlayedWords(listOfWords),
                 ),
               },
               {
@@ -198,21 +201,22 @@ const AudioBatle = ({ page, group }: Props) => {
         </>
       )}
 
-      {(gameStatus === GameStatus.finished && !showGameResult) && (
-      <>
-        <ListOfPlayedWords listOfPlayedWords={
-        listOfWords.filter((wordObj) => wordObj.alredyPlayed === true)
-      }
-        />
-      </>
+      {gameStatus === GameStatus.finished && !showGameResult && (
+        <>
+          <ListOfPlayedWords
+            listOfPlayedWords={listOfWords.filter(
+              (wordObj) => wordObj.alredyPlayed === true,
+            )}
+          />
+        </>
       )}
 
-      {(gameStatus === GameStatus.finished) && (
-      <CustomButton
-        value={showGameResult ? 'Показать слова' : 'показать статистику'}
-        className={CONTROLBUTTON_DEFAULT}
-        onClickHandler={() => setShowGameResultHandler()}
-      />
+      {gameStatus === GameStatus.finished && (
+        <CustomButton
+          value={showGameResult ? 'Показать слова' : 'показать статистику'}
+          className={CONTROLBUTTON_DEFAULT}
+          onClickHandler={() => setShowGameResultHandler()}
+        />
       )}
 
       {gameStatus === GameStatus.inProcess && (
@@ -265,23 +269,23 @@ const AudioBatle = ({ page, group }: Props) => {
       )}
 
       {gameStatus === GameStatus.inProcess
-      && CurrentPlayedWord.alredyPlayed
-      && CurrentPlayedWord.word && (
-        <CustomButton
-          value="Следующее слово"
-          className={CONTROLBUTTON_DEFAULT}
-          onClickHandler={() => setNextWordHandler(listOfWords)}
-        />
+        && CurrentPlayedWord.alredyPlayed
+        && CurrentPlayedWord.word && (
+          <CustomButton
+            value="Следующее слово"
+            className={CONTROLBUTTON_DEFAULT}
+            onClickHandler={() => setNextWordHandler(listOfWords)}
+          />
       )}
 
       {gameStatus === GameStatus.inProcess
-      && !CurrentPlayedWord.alredyPlayed
-      && CurrentPlayedWord.word && (
-        <CustomButton
-          value="Пропустить слово"
-          className={CONTROLBUTTON_DEFAULT}
-          onClickHandler={() => skipWordHandler()}
-        />
+        && !CurrentPlayedWord.alredyPlayed
+        && CurrentPlayedWord.word && (
+          <CustomButton
+            value="Пропустить слово"
+            className={CONTROLBUTTON_DEFAULT}
+            onClickHandler={() => skipWordHandler()}
+          />
       )}
     </div>
   );
