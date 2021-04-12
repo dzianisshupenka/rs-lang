@@ -4,7 +4,7 @@ import './AudioBatle.css';
 import React, { useEffect, useRef, useState } from 'react';
 
 import CustomButton from '../Common/Games/CustomButton';
-import AnswerButtons from './AnswerButton';
+import AnswerButtons from '../Common/Games/AnswerButton';
 import StatTable from '../Common/Games/EndGameStatistic/StatTable';
 import ListOfPlayedWords from '../Common/Games/EndGameStatistic/ListOfPlayedWords';
 
@@ -49,6 +49,9 @@ const AudioBatle = ({ page, group }: Props) => {
     CurrentPlayedWord,
     setCurrentPlayedWord,
   ] = useState<AudioBattleWordForRound>({
+    id: '',
+    group: -1,
+    page: -1,
     word: '',
     wordTranslate: '',
     image: '',
