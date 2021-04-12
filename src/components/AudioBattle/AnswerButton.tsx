@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { AnswerButtonProps } from './Types';
-import { ANSWERRESULTSTYLES } from './Const';
-import CustomButton from './CustomButton';
+import { AnswerButtonProps } from '../Common/Games/Types';
+import { ANSWERRESULTSTYLES } from '../Common/Games/Const';
+import CustomButton from '../Common/Games/CustomButton';
 
 type Props = {
   arrOfAnswerButtons: AnswerButtonProps[];

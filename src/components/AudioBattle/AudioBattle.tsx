@@ -3,10 +3,10 @@ import './AudioBatle.css';
 
 import React, { useEffect, useRef, useState } from 'react';
 
-import CustomButton from './CustomButton';
+import CustomButton from '../Common/Games/CustomButton';
 import AnswerButtons from './AnswerButton';
-import StatTable from '../Common/EndGameStatistic/StatTable';
-import ListOfPlayedWords from './ListOfPlayedWords';
+import StatTable from '../Common/Games/EndGameStatistic/StatTable';
+import ListOfPlayedWords from '../Common/Games/EndGameStatistic/ListOfPlayedWords';
 
 import {
   playAudio,
@@ -19,9 +19,9 @@ import {
   getNumOfSkippedWords,
   getNewListOfWords,
   getArrayLastIndex,
-} from './CommonFuncs';
+} from '../Common/Games/CommonFuncs';
 
-import { AnswerButtonProps, AudioBattleWordForRound } from './Types';
+import { AnswerButtonProps, AudioBattleWordForRound } from '../Common/Games/Types';
 
 import {
   ANSWERRESULTSTYLES,
@@ -35,7 +35,7 @@ import {
   CONTROLBUTTON_DEFAULT,
   GAME_RULES,
   CONTROLBUTTON_ENDGAME,
-} from './Const';
+} from '../Common/Games/Const';
 
 type Props = {
   page: number;

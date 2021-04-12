@@ -1,14 +1,14 @@
 import React from 'react';
-import { playAudio } from './CommonFuncs';
-import './AudioBatle.css';
-import CustomButton from './CustomButton';
+import { playAudio } from '../CommonFuncs';
+// import './AudioBatle.css';
+import CustomButton from '../CustomButton';
 import {
   REPEATAUDIO_LIST,
   LISTOFPLAYEDWORDS,
   LISTOFPLAYEDWORDS_LISTITEM,
   LISTOFPLAYEDWORDS_WORLDTRANSLATE,
-} from './Const';
-import { AudioBattleWordForRound } from './Types';
+} from '../Const';
+import { AudioBattleWordForRound } from '../Types';
 
 type Props = {
   listOfPlayedWords:AudioBattleWordForRound[]

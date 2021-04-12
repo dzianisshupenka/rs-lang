@@ -1,11 +1,11 @@
 /* eslint-disable import/prefer-default-export */
-import wordsAPI from '../../api/words';
+import wordsAPI from '../../../api/words';
 import { AnswerButtonProps, AudioBattleWordForRound } from './Types';
 import {
   ANSWERRESULTSTYLES,
   NUMBER_OF_WRONG_WORDS,
 } from './Const';
-import { BACKEND_ROUTE } from '../../api/Const';
+import { BACKEND_ROUTE } from '../../../api/Const';
 
 const playAudio = (audioPath: string) => {
   if (audioPath) {
