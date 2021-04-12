@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import CustomButton from './CustomButton';
 import AnswerButtons from './AnswerButton';
-import StatTable from './StatTable';
+import StatTable from '../Common/EndGameStatistic/StatTable';
 import ListOfPlayedWords from './ListOfPlayedWords';
 
 import {

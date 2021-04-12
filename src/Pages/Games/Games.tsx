@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import ChooseGame from '../../components/ChooseGame';
 import MakeWordGame from '../../components/MakeWordGame/MakeWordGame';
 import SavannaGame from '../../components/SavannaGame/SavannaGame';
-import AudioBatle from './AudioBattle/AudioBattle';
+import AudioBatle from '../../components/AudioBattle/AudioBattle';
 
 const Games:React.FC = () => (
   <div className="games-wrapper">
