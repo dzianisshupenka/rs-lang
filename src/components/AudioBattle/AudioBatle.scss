@@ -116,12 +116,20 @@
 
   &__repeat-audio_small {
     @include commonRepeatAudio(65%, 80px, 80px);
+
+    &:focus {
+      border: 1px solid rgb(35, 7, 100);
+    }
   }
 
   &__repeat-audio_big {
     @include commonRepeatAudio(65%, 150px, 150px);
     margin: 105px;
     padding: 0;
+
+    &:focus {
+      border: 1px solid rgb(35, 7, 100);
+    }
   }
 
   &__game-status {

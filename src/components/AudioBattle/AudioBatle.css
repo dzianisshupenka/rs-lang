@@ -97,6 +97,10 @@ a:visited {
           transform: scale(0.9);
 }
 
+.audio-battle__control-button_default:focus {
+  border: 1px solid #230764;
+}
+
 .audio-battle__control-button_end-game {
   height: 30px;
   display: -webkit-box;
@@ -130,6 +134,10 @@ a:visited {
 .audio-battle__control-button_end-game:active {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
+}
+
+.audio-battle__control-button_end-game:focus {
+  border: 1px solid #230764;
 }
 
 .audio-battle__word-prompt_hidden {
@@ -268,6 +276,10 @@ a:visited {
           transform: scale(0.9);
 }
 
+.audio-battle__repeat-audio_small:focus {
+  border: 1px solid #230764;
+}
+
 .audio-battle__repeat-audio_big {
   background-image: url(../../assets/icons/audio.svg);
   background-position: center;
@@ -290,6 +302,10 @@ a:visited {
 .audio-battle__repeat-audio_big:active {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
+}
+
+.audio-battle__repeat-audio_big:focus {
+  border: 1px solid #230764;
 }
 
 .audio-battle__game-status {
@@ -356,6 +372,10 @@ a:visited {
           transform: scale(0.9);
 }
 
+.audio-battle__answer-button_default:focus {
+  border: 1px solid #230764;
+}
+
 .audio-battle__answer-button_wrong, .audio-battle__answer-button_unavailable {
   height: 30px;
   display: -webkit-box;
@@ -385,6 +405,10 @@ a:visited {
 .audio-battle__answer-button_wrong:active, .audio-battle__answer-button_unavailable:active {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
+}
+
+.audio-battle__answer-button_wrong:focus, .audio-battle__answer-button_unavailable:focus {
+  border: 1px solid #230764;
 }
 
 .audio-battle__answer-button_wrong {
@@ -418,6 +442,10 @@ a:visited {
           transform: scale(0.9);
 }
 
+.audio-battle__answer-button_wrong:focus {
+  border: 1px solid #230764;
+}
+
 .audio-battle__answer-button_right {
   height: 30px;
   display: -webkit-box;
@@ -446,6 +474,10 @@ a:visited {
 .audio-battle__answer-button_right:active {
   -webkit-transform: scale(0.9);
           transform: scale(0.9);
+}
+
+.audio-battle__answer-button_right:focus {
+  border: 1px solid #230764;
 }
 
 .audio-battle__answer-button_default::before, .audio-battle__answer-button_wrong::before, .audio-battle__answer-button_unavailable::before {
