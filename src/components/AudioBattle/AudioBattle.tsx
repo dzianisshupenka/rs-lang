@@ -1,8 +1,13 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import './AudioBatle.css';
 
 import React, { useEffect, useRef, useState } from 'react';
 
+import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import { connect } from 'react-redux';
+import fullScreenIcon from '../../assets/icons/fullscreen.png';
+import exitFullScreenIcon from '../../assets/icons/exit-fullscreen.png';
 import { AppStateType } from '../../redux/store';
 import CustomButton from '../Common/Games/CustomButton';
 import AnswerButtons from '../Common/Games/AnswerButton';
@@ -25,6 +30,7 @@ import { AnswerButtonProps, AudioBattleWordForRound } from '../Common/Games/Type
 
 import {
   ANSWERRESULTSTYLES,
+  AUDIOBATTLE_FULLSCREEN,
   AUDIOBATTLE,
   GAMESTATUS,
   INFO,
@@ -63,6 +69,8 @@ const AudioBatle = ({ page, group }: Props) => {
 
   const currentPage = useRef(page);
   const correctAnswersInARow = useRef([0]);
+
+  const handle = useFullScreenHandle();
 
   useEffect(() => {
     (async () => {
@@ -151,18 +159,25 @@ const AudioBatle = ({ page, group }: Props) => {
   };
 
   return (
-    <div className={AUDIOBATTLE}>
-      {gameStatus === GameStatus.inProcess && (
+    <FullScreen handle={handle}>
+      <div className={AUDIOBATTLE}>
+        <img
+          src={handle.active ? exitFullScreenIcon : fullScreenIcon}
+          alt="fullscreen"
+          className={AUDIOBATTLE_FULLSCREEN}
+          onClick={() => (handle.active ? handle.exit() : handle.enter())}
+        />
+        {gameStatus === GameStatus.inProcess && (
         <CustomButton
           value="Завершить"
           className={CONTROLBUTTON_ENDGAME}
           onClickHandler={() => setGameStatus(GameStatus.finished)}
         />
-      )}
-      <h2 className={GAMESTATUS}>{gameStatus}</h2>
-      {gameStatus === GameStatus.loading && <div className="preloader" />}
+        )}
+        <h2 className={GAMESTATUS}>{gameStatus}</h2>
+        {gameStatus === GameStatus.loading && <div className="preloader" />}
 
-      {/* [
+        {/* [
         {
           name: 'Удачные попытки, %',
           value: Math.round(
@@ -194,7 +209,7 @@ const AudioBatle = ({ page, group }: Props) => {
         },
       ] */}
 
-      {gameStatus === GameStatus.finished && (
+        {gameStatus === GameStatus.finished && (
         <>
           <ListOfPlayedWords
             listOfPlayedWords={listOfWords.filter(
@@ -202,9 +217,9 @@ const AudioBatle = ({ page, group }: Props) => {
             )}
           />
         </>
-      )}
+        )}
 
-      {gameStatus === GameStatus.inProcess && (
+        {gameStatus === GameStatus.inProcess && (
         <>
           <div
             className={
@@ -225,24 +240,24 @@ const AudioBatle = ({ page, group }: Props) => {
             </div>
           </div>
         </>
-      )}
+        )}
 
-      {!CurrentPlayedWord.alredyPlayed
+        {!CurrentPlayedWord.alredyPlayed
         && gameStatus === GameStatus.inProcess && (
           <CustomButton
             className={REPEATAUDIO_BIG}
             onClickHandler={() => playAudio(CurrentPlayedWord?.audio)}
           />
-      )}
+        )}
 
-      {gameStatus === GameStatus.inProcess && (
+        {gameStatus === GameStatus.inProcess && (
         <AnswerButtons
           arrOfAnswerButtons={CurrentPlayedWord?.answers as AnswerButtonProps[]}
           answerButtonHandler={answerButtonHandler}
         />
-      )}
+        )}
 
-      {gameStatus === GameStatus.ready && (
+        {gameStatus === GameStatus.ready && (
         <>
           <h2 className={INFO}>{GAME_RULES}</h2>
           <CustomButton
@@ -251,9 +266,9 @@ const AudioBatle = ({ page, group }: Props) => {
             onClickHandler={() => startGameHandler(listOfWords)}
           />
         </>
-      )}
+        )}
 
-      {gameStatus === GameStatus.inProcess
+        {gameStatus === GameStatus.inProcess
         && CurrentPlayedWord.alredyPlayed
         && CurrentPlayedWord.word && (
           <CustomButton
@@ -261,9 +276,9 @@ const AudioBatle = ({ page, group }: Props) => {
             className={CONTROLBUTTON_DEFAULT}
             onClickHandler={() => setNextWordHandler(listOfWords)}
           />
-      )}
+        )}
 
-      {gameStatus === GameStatus.inProcess
+        {gameStatus === GameStatus.inProcess
         && !CurrentPlayedWord.alredyPlayed
         && CurrentPlayedWord.word && (
           <CustomButton
@@ -271,8 +286,9 @@ const AudioBatle = ({ page, group }: Props) => {
             className={CONTROLBUTTON_DEFAULT}
             onClickHandler={() => skipWordHandler()}
           />
-      )}
-    </div>
+        )}
+      </div>
+    </FullScreen>
   );
 };
 

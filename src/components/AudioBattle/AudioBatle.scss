@@ -36,6 +36,21 @@
   border-radius: 25px;
   padding: 2%;
   overflow: hidden;
+  max-width: 1000px;
+
+  &__fullscreen {
+    position: absolute;
+    top: 1%;
+    left: 5%;
+    width: 35px;
+
+    &:hover{
+      cursor: pointer;
+      opacity: 0.8;
+      transform: scale(1.1);
+      transition: transform .3s;
+    }
+  }
 
   &__word-image {
     border-radius: 50px;
@@ -50,8 +65,9 @@
     @include commonAnswerButtonStyle(24px);
     background-color: salmon;
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 1%;
+    right: 5%;
+    margin: 0px;
   }
   &__word-prompt_hidden {
     display: none;

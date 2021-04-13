@@ -1,3 +1,16 @@
+.fullscreen-enabled {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: bisque;
+}
+
 a,
 a:hover,
 a:active,
@@ -28,6 +41,25 @@ a:visited {
   border-radius: 25px;
   padding: 2%;
   overflow: hidden;
+  max-width: 1000px;
+}
+
+.audio-battle__fullscreen {
+  position: absolute;
+  top: 1%;
+  left: 5%;
+  width: 35px;
+}
+
+.audio-battle__fullscreen:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
 }
 
 .audio-battle__word-image {
@@ -85,8 +117,9 @@ a:visited {
   background-color: #0077b6ff;
   background-color: salmon;
   position: absolute;
-  top: 0px;
-  right: 0px;
+  top: 1%;
+  right: 5%;
+  margin: 0px;
 }
 
 .audio-battle__control-button_end-game:hover {

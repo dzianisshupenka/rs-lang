@@ -32,6 +32,12 @@
   @include standartText(24px, $commonWhite, 500, normal, center);
 }
 
+.fullscreen-enabled {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: bisque;
+}
 a,
 a:hover,
 a:active,

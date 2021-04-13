@@ -17,6 +17,8 @@ const ANSWERRESULTSTYLES = {
   ANSWERBUTTON__WORD_IMAGE: `${AUDIOBATTLE}__word-image`,
 };
 
+const AUDIOBATTLE_FULLSCREEN = `${AUDIOBATTLE}__fullscreen`;
+
 const LISTOFPLAYEDWORDS = 'ListOfPlayedWords';
 const LISTOFPLAYEDWORDS_GROUP = `${LISTOFPLAYEDWORDS}__group`;
 const LISTOFPLAYEDWORDS_SUBLIST_ANSWERED = `${LISTOFPLAYEDWORDS}__sublist-answered`;
@@ -37,6 +39,7 @@ enum GameStatus {
 const GAME_RULES = 'В этой игре Вам необходиму выбрать правильный перевод озвученного слова. Клик по иконке громофона воспроизводит слово повторно.';
 export {
   AUDIOBATTLE,
+  AUDIOBATTLE_FULLSCREEN,
   ANSWERRESULTSTYLES,
   NUMBER_OF_WRONG_WORDS,
   GAMESTATUS,
