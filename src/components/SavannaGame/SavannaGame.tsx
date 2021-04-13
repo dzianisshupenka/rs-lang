@@ -13,6 +13,7 @@ import diam from '../../assets/icons/diamond.png';
 import Preloader from '../Common/Preloader/Preloader';
 import Lifes from './Lifes';
 import GameStatsBar from '../Common/GameStatsBar/GameStatsBar';
+import ListOfPlayedWords from '../Common/Games/EndGameStatistic/ListOfPlayedWords';
 
 type MapStateToPropsType = {
   words: any,
@@ -46,6 +47,7 @@ const SavannaGame:React.FC<PropsType> = ({
   const [gameOver, setGameOver] = useState(false);
   const [correctWords, setCorrectWords] = useState<any[]>([]);
   const [wrongAnswers, setWrongAnswers] = useState<any[]>([]);
+  const [wordsForStats, setWordsForStats] = useState<any[]>([]);
   const [correctInARow, setCorrectInARow] = useState<number>(0);
   const [maxCorrectInARow, setMaxCorrectInARow] = useState<number>(0);
   const [height, setHeight] = useState(500);
@@ -92,9 +94,15 @@ const SavannaGame:React.FC<PropsType> = ({
       newLifes.pop();
       setLifes(newLifes);
       setWrongAnswers([...wrongAnswers, words[wordInd]]);
+      const wordForStats = words[wordInd];
+      wordForStats.answerResult = false;
+      setWordsForStats([...wordsForStats, wordForStats]);
       setCorrectInARow(0);
     } else if (borderColor === 'green') {
       setCorrectWords([...correctWords, words[wordInd]]);
+      const wordForStats = words[wordInd];
+      wordForStats.answerResult = true;
+      setWordsForStats([...wordsForStats, wordForStats]);
       setCorrectInARow((prev) => prev + 1);
     }
     if (lifes.length === 0) {
@@ -277,7 +285,7 @@ const SavannaGame:React.FC<PropsType> = ({
                 {gameOver
                   ? (
                     <div className="make-words-description">
-                      {gameOver ? `Игра окончена! Правильных слов: ${correctWords.length}, лучшая серия правильных ответов: ${maxCorrectInARow}, ошибок: ${wrongAnswers.length}, всего слов: ${correctWords.length + wrongAnswers.length}` : ''}
+                      {gameOver ? <ListOfPlayedWords listOfPlayedWords={wordsForStats} /> : ''}
                     </div>
                   )
                   : <div className="make-words-description">{gameOver ? '' : 'В этой игре вам предстоит собрать перевод слова, используя предоставленные буквы'}</div>}

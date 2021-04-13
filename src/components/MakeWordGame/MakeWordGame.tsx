@@ -7,6 +7,7 @@ import { getWordsForGame } from '../../redux/make-word-reducer';
 import WordInfo from './WordInfo';
 import WordRandomLetters from './WordRandomLetters';
 import GameStatsBar from '../Common/GameStatsBar/GameStatsBar';
+import ListOfPlayedWords from '../Common/Games/EndGameStatistic/ListOfPlayedWords';
 
 type MapStateToPropsType = {
   words: any,
@@ -30,8 +31,9 @@ const MakeWordGame:React.FC<PropsType> = ({
   const [wordIndex, setWordIndex] = useState<number>(0);
   const [clickedLetter, setClickedLetter] = useState<string>('');
   const [clickedTime, setClickedTime] = useState<number>(0);
-  const [correctWords, setCorrectWords] = useState<number>(0);
-  const [errors, setErrors] = useState<number>(0);
+  const [correctWords, setCorrectWords] = useState<any[]>([]);
+  const [wrongAnswers, setWrongAnswers] = useState<any[]>([]);
+  const [wordsForStats, setWordsForStats] = useState<any[]>([]);
   const [activeLetterIndex, setActiveLetterIndex] = useState<number>(0);
 
   const handle = useFullScreenHandle();
@@ -64,7 +66,10 @@ const MakeWordGame:React.FC<PropsType> = ({
       if (element) {
         element.style.backgroundColor = '#70e000';
       }
-      setCorrectWords(correctWords + 1);
+      setCorrectWords([...correctWords, words[wordIndex]]);
+      const wordForStats = words[wordIndex];
+      wordForStats.answerResult = true;
+      setWordsForStats([...wordsForStats, wordForStats]);
       setCorrectInARow(correctInARow + 1);
       setTimeout(() => NextWordHandler(), 700);
     }
@@ -78,7 +83,10 @@ const MakeWordGame:React.FC<PropsType> = ({
       }
     } else {
       const element = document.getElementById('word-info-wrapper');
-      setErrors(errors + 1);
+      const wordForStats = words[wordIndex];
+      wordForStats.answerResult = false;
+      setWordsForStats([...wordsForStats, wordForStats]);
+      setWrongAnswers([...wrongAnswers, words[wordIndex]]);
       setCorrectInARow(0);
       if (element) {
         element.style.backgroundColor = 'rgba(255, 100, 100)';
@@ -91,8 +99,9 @@ const MakeWordGame:React.FC<PropsType> = ({
     setIsRunning(true);
     setWordIndex(0);
     setGameOver(false);
-    setErrors(0);
-    setCorrectWords(0);
+    setWrongAnswers([]);
+    setCorrectWords([]);
+    setWordsForStats([]);
   };
 
   const onKeypress = (e: any) => {
@@ -133,8 +142,8 @@ const MakeWordGame:React.FC<PropsType> = ({
       <FullScreen handle={handle}>
         <div className={wrapperStyles.join(' ')}>
           <GameStatsBar
-            correctWords={correctWords}
-            errors={errors}
+            correctWords={correctWords.length}
+            errors={wrongAnswers.length}
             maxCorrectInARow={maxCorrectInARow}
             handleActive={handle.active}
             handleEnter={() => handle.enter()}
@@ -156,7 +165,7 @@ const MakeWordGame:React.FC<PropsType> = ({
       <FullScreen handle={handle}>
         <div className={wrapperStyles.join(' ')}>
           <div className="make-words-description">{gameOver ? '' : 'В этой игре вам предстоит собрать перевод слова, используя предоставленные буквы'}</div>
-          <div className="make-words-description">{gameOver ? `Игра окончена! Правильных слов: ${correctWords}, лучшая серия правильных ответов: ${maxCorrectInARow}, ошибок: ${errors}, всего слов: ${correctWords + errors}` : ''}</div>
+          <div className="make-words-description">{gameOver ? <ListOfPlayedWords listOfPlayedWords={wordsForStats} /> : ''}</div>
           <div className="make-words-description">
             <button className="start-game-btn" type="button" onClick={startGameHandler}>{gameOver ? 'Начать новую игру' : 'Начать игру'}</button>
           </div>
