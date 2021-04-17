@@ -1,0 +1,32 @@
+@import './variables';
+
+@mixin standartText($fontSize: 10px, $color: $commonBlack, $fontWeight: normal, $fontStyle: normal, $textAlign: auto) {
+  color: $color;
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  font-style: $fontStyle;
+  text-align: $textAlign;
+}
+
+@mixin endGameStatWordText {
+  @include standartText(18px, $endgameStatisticsWord, normal, normal);
+}
+
+@mixin endGameStatWordTranslateText {
+  @include standartText(18px, $endgameStatisticsWordTranslate, normal, normal);
+}
+
+@mixin endGameStatGroupTitleText {
+  @include standartText(24px, $endgameStatisticsGroupTitle, normal, normal, left);
+}
+
+@mixin endGameStatGroupCounter {
+  @include standartText(18px, $commonWhite, normal, normal);
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  text-decoration: none;
+}

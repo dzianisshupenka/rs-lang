@@ -68,7 +68,7 @@ const getPlayableListOfWords = (
 ): AudioBattleWordForRound[] => rawListOfWords
   .map((rawWordObject: any, _: number, mappedArray: any[]) => {
     const {
-      word, wordTranslate, image, audio,
+      id, group, page, word, wordTranslate, image, audio,
     } = rawWordObject;
     const answers: AnswerButtonProps[] = getArrOfAnswers(
       wordTranslate,
@@ -76,6 +76,9 @@ const getPlayableListOfWords = (
     );
 
     return {
+      id,
+      group,
+      page,
       word,
       wordTranslate,
       image: `${BACKEND_ROUTE}/${image}`,
