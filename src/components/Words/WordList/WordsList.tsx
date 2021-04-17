@@ -1,36 +1,37 @@
 import React from 'react';
-import { v4 as uuid } from 'uuid';
-import { connect } from 'react-redux';
 import WordListItem from './WordListItem';
 import styles from './WordList.module.css';
-import { AppStateType } from '../../../redux/store';
-
-type MapStateToPropsType = {
-  currentWordID: string,
-};
 
 type OwnProps = {
   wordsList: any,
+  currentWordID: string,
+  deletedWordsId: Array<String>,
 };
 
-type PropsType = MapStateToPropsType & OwnProps;
+type PropsType = OwnProps;
 
-const WordsList: React.FC<PropsType> = ({ wordsList, currentWordID }: PropsType) => (
-  <div className={styles.wordsList}>
-    {wordsList && wordsList.map((wordInfo: any) => {
-      const id = uuid();
-      const isActive = wordInfo.id === currentWordID;
-      return (
-        <div key={id} className={isActive ? styles.active : ''}>
-          <WordListItem wordInfo={wordInfo} />
-        </div>
-      );
-    })}
-  </div>
-);
+const WordsList: React.FC<PropsType> = ({
+  wordsList,
+  currentWordID,
+  deletedWordsId,
+}: PropsType) => {
+  const wordsListElements = wordsList
+    && wordsList
+      .filter((word: any) => !deletedWordsId.includes(word.id))
+      .map((wordInfo: any) => {
+        const isActive = wordInfo.id === currentWordID;
+        return (
+          <div key={wordInfo.id} className={isActive ? styles.active : ''}>
+            <WordListItem wordInfo={wordInfo} />
+          </div>
+        );
+      });
 
-const MapStateToProps = (state: AppStateType): MapStateToPropsType => ({
-  currentWordID: state.words.currentWordID,
-});
+  return (
+    <div className={styles.wordsList}>
+      { wordsListElements}
+    </div>
+  );
+};
 
-export default connect(MapStateToProps, {})(WordsList);
+export default WordsList;

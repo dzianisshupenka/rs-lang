@@ -186,3 +186,8 @@
       background-color: #0000ff;
       box-shadow:0 0 0 0 #ffffff;
   }
+
+  .textbookSettings {
+    display: flex;
+    align-items: center;
+  }

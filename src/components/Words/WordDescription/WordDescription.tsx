@@ -3,6 +3,7 @@ import { AddDeletedWordIdType, AddHardWordIdType } from '../../../redux/dictiona
 import Preloader from '../../Common/Preloader/Preloader';
 
 type OwnProps = {
+  hardWordsId: Array<String>,
   currentWordInfo: any,
   wordImage: any,
   wordAudio: any,
@@ -16,6 +17,7 @@ type OwnProps = {
 type PropsType = OwnProps;
 
 const WordDescription: React.FC<PropsType> = ({
+  hardWordsId,
   currentWordInfo,
   wordImage,
   wordAudio,
@@ -40,9 +42,12 @@ const WordDescription: React.FC<PropsType> = ({
     textExampleTranslate,
   } = currentWordInfo;
 
+  const isWordHard = hardWordsId.includes(id);
+
   return (
     <div>
       <h3>{word}</h3>
+      { isWordHard && <span>(сложное слово)</span> }
       <h4>{transcription}</h4>
       { isTranslationShown && <h5>{wordTranslate}</h5>}
       <audio src={wordAudio}>

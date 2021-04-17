@@ -4,7 +4,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FormControlLabel, Switch } from '@material-ui/core';
 import { AppStateType } from '../../../redux/store';
-import styles from '../Words.module.css';
 import './Modal.css';
 import SettingsIcon from '../../Common/SettingsIcon';
 import {
@@ -35,7 +34,7 @@ const TextbookSettings: React.FC<PropsType> = ({
   setIsHardWordsBtnShown,
   setIsDeleteWordBtnShown,
 }: PropsType) => (
-  <span className={styles.settings}>
+  <span className="textbookSettings">
     <a href="#win1" className="button button-blue">
       <SettingsIcon width="25px" />
       Настройки

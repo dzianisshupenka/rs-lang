@@ -7,10 +7,11 @@ import Header from './components/Header/Header';
 import MainPage from './Pages/MainPage/MainPage';
 import Settings from './Pages/Settings/Settings';
 import Statistic from './Pages/Statistic/Statistic';
-import TextBook from './Pages/TextBook';
+import TextBook from './Pages/Textbook/TextBook';
 import SignIn from './Pages/Authorization/SignIn';
 import SignUp from './Pages/Authorization/SignUp';
 import { getUserUsingRefreshToken } from './api/AuthorizationAPI';
+import Dictionary from './Pages/Dictionary/Dictionary';
 
 const App:React.FC = () => {
   useEffect(() => {
@@ -29,6 +30,7 @@ const App:React.FC = () => {
           <Route path="/textbook" component={TextBook} />
           <Route path="/signin" component={SignIn} />
           <Route path="/signup" component={SignUp} />
+          <Route path="/dictionary" component={Dictionary} />
         </div>
         <Footer />
       </BrowserRouter>

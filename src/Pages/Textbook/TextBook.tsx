@@ -1,18 +1,15 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { v4 as uuid } from 'uuid';
 import { NavLink } from 'react-router-dom';
 import { AppStateType } from '../../redux/store';
-import WordsList from './WordList/WordsList';
 import { getWordsList, setCurrentGroup, setCurrentPage } from '../../redux/words-reducer';
 import styles from './Words.module.css';
-import WordDescriptionContainer from './WordDescription/WordDescriptionContainer';
-import TextbookSettings from './TextbookSettings/TextbookSettings';
+import WordDescriptionContainer from '../../components/Words/WordDescription/WordDescriptionContainer';
+import TextbookSettings from '../../components/Words/TextbookSettings/TextbookSettings';
+import WordsListContainer from '../../components/Words/WordList/WordsListContainer';
 
 type MapStateToPropsType = {
-  wordsList: any,
   groupsCount: number,
   currentPage: number,
   currentGroup: number,
@@ -26,8 +23,7 @@ type MapDispatchToPropsType = {
 
 type PropsType = MapStateToPropsType & MapDispatchToPropsType;
 
-const WordsContainer: React.FC<PropsType> = ({
-  wordsList,
+const TextBook: React.FC<PropsType> = ({
   groupsCount,
   currentPage,
   currentGroup,
@@ -79,28 +75,31 @@ const WordsContainer: React.FC<PropsType> = ({
   }, []);
 
   return (
-    <div className={styles.wordsContainer}>
-      <div className={styles.groups}>
-        {groupTitlesElements}
-      </div>
-      <div className={styles.words}>
-        <WordDescriptionContainer />
-        <WordsList wordsList={wordsList} />
-        <div className={styles.games}>
-          <TextbookSettings />
-          <p>Повтори слова в играх:</p>
-          <NavLink className="game-link" to="/games/make-word">Make Words</NavLink>
-          <NavLink className="game-link" to="/games/savanna">Savanna</NavLink>
-          <NavLink className="game-link" to="/games/audio-battle">Audio battle</NavLink>
-          <NavLink className="game-link" to="/games/sprint">Sprint</NavLink>
+    <div className="textBookPage">
+      <div className={styles.wordsContainer}>
+        <div className={styles.groups}>
+          {groupTitlesElements}
+        </div>
+        <div className={styles.words}>
+          <WordDescriptionContainer />
+          <WordsListContainer />
+          <div className={styles.games}>
+            <TextbookSettings />
+            <p>Повтори слова в играх:</p>
+            <NavLink className="game-link" to="/games/make-word">Make Words</NavLink>
+            <NavLink className="game-link" to="/games/savanna">Savanna</NavLink>
+            <NavLink className="game-link" to="/games/audio-battle">Audio battle</NavLink>
+            <NavLink className="game-link" to="/games/sprint">Sprint</NavLink>
+            <NavLink to="/dictionary">Перейти в словарь</NavLink>
+          </div>
         </div>
       </div>
+
     </div>
   );
 };
 
 const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
-  wordsList: state.words.words,
   groupsCount: state.words.groupsCount,
   currentGroup: state.words.currentGroup,
   currentPage: state.words.currentPage,
@@ -108,4 +107,4 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
 
 export default connect(mapStateToProps, {
   getWordsList, setCurrentGroup, setCurrentPage,
-})(WordsContainer);
+})(TextBook);

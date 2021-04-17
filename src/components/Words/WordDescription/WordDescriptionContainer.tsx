@@ -20,6 +20,7 @@ type MapStateToPropsType = {
   pageSize: number,
   currentPage: number,
   isTranslationShown: boolean,
+  hardWordsId: Array<String>,
 };
 
 type MapDispatchToPropsType = {
@@ -32,6 +33,7 @@ type MapDispatchToPropsType = {
 type PropsType = MapStateToPropsType & MapDispatchToPropsType;
 
 const WordDescriptionContainer: React.FC<PropsType> = ({
+  hardWordsId,
   currentWordID,
   currentWordInfo,
   wordImage,
@@ -54,6 +56,7 @@ const WordDescriptionContainer: React.FC<PropsType> = ({
   return (
     <div>
       <WordDescription
+        hardWordsId={hardWordsId}
         currentWordInfo={currentWordInfo}
         wordImage={wordImage}
         wordAudio={wordAudio}
@@ -84,6 +87,7 @@ const mapStateToProps = (state: AppStateType): MapStateToPropsType => ({
   pageSize: state.words.pageSize,
   currentPage: state.words.currentPage,
   isTranslationShown: state.textbookSettings.isTranslationShown,
+  hardWordsId: state.dictionary.hardWordsId,
 });
 
 export default connect(
