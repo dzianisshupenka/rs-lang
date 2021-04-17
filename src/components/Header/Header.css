@@ -1,0 +1,30 @@
+.user-name:hover ~ .header-user-menu {
+  display: block;
+}
+
+.header-user-menu {
+  color: #fff;
+  background-color: blue;
+  border: 1px solid #fff;
+  top: 20%;
+  position: absolute;
+  left: 0%;
+  border-radius: 13px;
+  padding: 11px;
+  display: none;
+}
+
+.header-user-menu:hover {
+  display: block;
+  cursor: pointer;
+}
+
+.header-user-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  position: relative;
+}

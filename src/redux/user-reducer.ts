@@ -68,11 +68,15 @@ const setUserStateAction = (loggerUserData: UserLoginData):SeetUserStateAction =
   payload: { isLoged: true, ...loggerUserData },
 });
 
+const clearUserStateAction = ():ClearUserStateAction => ({
+  type: UserStateActionTypes.CLEARUSERSTATE,
+});
+
 const setQueryStatusAction = (newQueryStatus: QueryStatuses): SetQueryStatusAction => ({
   type: UserStateActionTypes.SETQUERYSTATUS,
   payload: newQueryStatus,
 });
 
 export {
-  UserStateReduser, setUserStateAction, setQueryStatusAction, QueryStatuses,
+  UserStateReduser, setUserStateAction, setQueryStatusAction, QueryStatuses, clearUserStateAction,
 };

@@ -1,0 +1,27 @@
+
+.user-name:hover ~ .header-user-menu {
+  display: block;
+}
+
+.header-user-menu {
+  color: #fff;
+  background-color: rgba(0, 0, 255, 1);
+  border: 1px solid #fff;
+  top: 20%;
+  position: absolute;
+  left: 0%;
+  border-radius: 13px;
+  padding: 11px;
+  display: none;
+
+  &:hover {
+    display: block;
+    cursor: pointer;
+  }
+}
+
+.header-user-info {
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+}
