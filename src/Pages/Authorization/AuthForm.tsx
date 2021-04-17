@@ -22,10 +22,12 @@ const AuthForm = ({ children, formName, submitHAndler }: Props) => {
     message = 'Query pending';
   }
   return (
-    <div>
+    <div className="auth-wrapper">
       {isLoged && <Redirect to="/" />}
-      <form onSubmit={(e) => submitHAndler(e)} name={formName}>
-        <h2>{message}</h2>
+      {queryStatus === QueryStatuses.pending && <div className="preloader" />}
+      <h2 style={{ textAlign: 'center' }}>{message}</h2>
+      <form onSubmit={(e) => submitHAndler(e)} name={formName} className="SignUp" style={{ visibility: queryStatus === QueryStatuses.pending ? 'hidden' : 'visible' }}>
+
         {children}
         <div className="AuthFormControls">
           <button type="submit">{formName}</button>
