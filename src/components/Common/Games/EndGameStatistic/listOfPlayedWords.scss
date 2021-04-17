@@ -1,0 +1,103 @@
+@import '../styles/commonStyles';
+@import '../styles/variables';
+
+@mixin afterPseudoContent($bgColor: tan) {
+  content: attr(data-words);
+  background-color: $bgColor;
+  margin-left: 10px;
+  padding: 0px 15px;
+  border-radius: 15px;
+  @include endGameStatGroupCounter;
+}
+
+.ListOfPlayedWords {
+
+  max-height: 100%;
+  background-color: $commonWhite;
+  padding: 10px 20px;
+  border-radius: 25px;
+  max-height:  70%;
+  min-height:  20%;
+
+  &__wrapper{
+    overflow: auto;
+    height: 100%;
+    padding: 0px 10px;
+    @include standartText(28px, $commonBlack, 500, normal,center);
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  }
+
+  &__group {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid $commonGray;
+  }
+
+  &__list-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: gainsboro;
+    }
+  }
+
+  &__sublist {
+    &-answered {
+      @include endGameStatGroupTitleText;
+      position: sticky;
+      top: 0px;
+      background: white;
+
+      &::after {
+        @include afterPseudoContent($answeredWordsCounter);
+      }
+    }
+
+    &-unanswered {
+      @include endGameStatGroupTitleText;
+      position: sticky;
+      top: 0px;
+      background: white;
+
+      &::after {
+        @include afterPseudoContent($unansweredWordsCounter);
+      }
+    }
+  }
+
+  &__word{
+    @include endGameStatWordText;
+    margin: 0px 10px;
+
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  &__word-translate {
+    @include endGameStatWordTranslateText
+  }
+}

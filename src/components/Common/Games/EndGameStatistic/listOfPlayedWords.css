@@ -1,0 +1,157 @@
+.fullscreen-enabled {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: bisque;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  text-decoration: none;
+}
+
+.ListOfPlayedWords {
+  max-height: 100%;
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  max-height: 70%;
+  min-height: 20%;
+}
+
+.ListOfPlayedWords__wrapper {
+  overflow: auto;
+  height: 100%;
+  padding: 0px 10px;
+  color: black;
+  font-size: 28px;
+  font-weight: 500;
+  font-style: normal;
+  text-align: center;
+}
+
+.ListOfPlayedWords__wrapper::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 5px;
+}
+
+.ListOfPlayedWords__wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 5px;
+}
+
+.ListOfPlayedWords__wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+.ListOfPlayedWords__wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.ListOfPlayedWords__group {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #969090;
+}
+
+.ListOfPlayedWords__list-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+  border-radius: 5px;
+}
+
+.ListOfPlayedWords__list-item:hover {
+  background-color: gainsboro;
+}
+
+.ListOfPlayedWords__sublist-answered {
+  color: #969090;
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  text-align: left;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  background: white;
+}
+
+.ListOfPlayedWords__sublist-answered::after {
+  content: attr(data-words);
+  background-color: green;
+  margin-left: 10px;
+  padding: 0px 15px;
+  border-radius: 15px;
+  color: white;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  text-align: auto;
+}
+
+.ListOfPlayedWords__sublist-unanswered {
+  color: #969090;
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  text-align: left;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  background: white;
+}
+
+.ListOfPlayedWords__sublist-unanswered::after {
+  content: attr(data-words);
+  background-color: red;
+  margin-left: 10px;
+  padding: 0px 15px;
+  border-radius: 15px;
+  color: white;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  text-align: auto;
+}
+
+.ListOfPlayedWords__word {
+  color: black;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  text-align: auto;
+  margin: 0px 10px;
+}
+
+.ListOfPlayedWords__word:hover {
+  cursor: pointer;
+}
+
+.ListOfPlayedWords__word-translate {
+  color: #969090;
+  font-size: 18px;
+  font-weight: normal;
+  font-style: normal;
+  text-align: auto;
+}

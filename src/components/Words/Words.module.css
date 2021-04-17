@@ -1,0 +1,36 @@
+.selectedPage {
+  font-weight: bold;
+  background-color: cornflowerblue;
+};
+
+.selectedGroup {
+  font-weight: bold;
+  background-color: cornflowerblue;
+}
+
+.words {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.wordsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.groups {
+  display: flex;
+  justify-content: center;
+}
+
+.games {
+  display: flex;
+  flex-direction: column;
+}
+
+.settings {
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,94 @@
+.SignIn,
+.AuthorizationWrapper {
+  margin: auto;
+  background-color: blue;
+  border-radius: 25px;
+  padding: 18px;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.TextInputLabel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.Login,
+.SignUp {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.AuthFormControls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-top: 25px;
+}
+
+.AuthFormControls button:hover {
+  cursor: pointer;
+}
+
+.AvatarWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: antiquewhite;
+  border-radius: 50px;
+  -ms-flex-item-align: center;
+      align-self: center;
+  overflow: hidden;
+}
+
+.LabelAsButton {
+  margin: 15px auto;
+  border: 1px solid #fff;
+  padding: 5px;
+  border-radius: 15px;
+  font-weight: 600;
+}
+
+.LabelAsButton:hover {
+  cursor: pointer;
+}
+
+.LabelAsButton:active {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.preloader {
+  background-image: url(../../assets/preloader.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100px;
+  height: 100px;
+  margin: 0px auto;
+  position: absolute;
+  left: 33%;
+  top: 30%;
+}
+
+.auth-wrapper {
+  position: relative;
+}

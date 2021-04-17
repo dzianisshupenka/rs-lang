@@ -1,0 +1,525 @@
+.fullscreen-enabled {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: bisque;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+  text-decoration: none;
+}
+
+.audio-battle {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 85vw;
+  height: 70vh;
+  position: relative;
+  align-items: center;
+  background-color: rgba(0, 180, 216, 0.7);
+  border-radius: 25px;
+  padding: 2%;
+  overflow: hidden;
+  max-width: 1000px;
+}
+
+.audio-battle__fullscreen {
+  position: absolute;
+  top: 1%;
+  left: 5%;
+  width: 35px;
+}
+
+.audio-battle__fullscreen:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: -webkit-transform .3s;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s, -webkit-transform .3s;
+}
+
+.audio-battle__word-image {
+  border-radius: 50px;
+  margin-bottom: 1%;
+}
+
+.audio-battle__control-button_default {
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 5px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 3px;
+  border: 1px solid white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #0077b6ff;
+}
+
+.audio-battle__control-button_default:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.audio-battle__control-button_default:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.audio-battle__control-button_default:focus {
+  border: 1px solid #230764;
+}
+
+.audio-battle__control-button_end-game {
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 5px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 3px;
+  border: 1px solid white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #0077b6ff;
+  background-color: salmon;
+  position: absolute;
+  top: 1%;
+  right: 5%;
+  margin: 0px;
+}
+
+.audio-battle__control-button_end-game:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.audio-battle__control-button_end-game:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.audio-battle__control-button_end-game:focus {
+  border: 1px solid #230764;
+}
+
+.audio-battle__word-prompt_hidden {
+  display: none;
+}
+
+.audio-battle__word-prompt_visible {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  height: 360px;
+  -webkit-animation: showAnswer 0.3s linear;
+          animation: showAnswer 0.3s linear;
+}
+
+@-webkit-keyframes showAnswer {
+  0% {
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  25% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  75% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes showAnswer {
+  0% {
+    -webkit-transform: scale(0.3);
+            transform: scale(0.3);
+  }
+  25% {
+    -webkit-transform: scale(0.7);
+            transform: scale(0.7);
+  }
+  50% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  75% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.audio-battle__word {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.audio-battle__repeat-audio-list {
+  background-image: url(../../assets/icons/audio.svg);
+  background-position: center;
+  background-color: aliceblue;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: 65%;
+  border: none;
+  width: 25px;
+  height: 25px;
+}
+
+.audio-battle__repeat-audio-list:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.audio-battle__repeat-audio-list:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.audio-battle__repeat-audio_small {
+  background-image: url(../../assets/icons/audio.svg);
+  background-position: center;
+  background-color: aliceblue;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: 65%;
+  border: none;
+  width: 80px;
+  height: 80px;
+}
+
+.audio-battle__repeat-audio_small:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.audio-battle__repeat-audio_small:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.audio-battle__repeat-audio_small:focus {
+  border: 1px solid #230764;
+}
+
+.audio-battle__repeat-audio_big {
+  background-image: url(../../assets/icons/audio.svg);
+  background-position: center;
+  background-color: aliceblue;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: 65%;
+  border: none;
+  width: 150px;
+  height: 150px;
+  margin: 105px;
+  padding: 0;
+}
+
+.audio-battle__repeat-audio_big:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.audio-battle__repeat-audio_big:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.audio-battle__repeat-audio_big:focus {
+  border: 1px solid #230764;
+}
+
+.audio-battle__game-status {
+  color: white;
+  font-size: 34px;
+  font-weight: 600;
+  font-style: normal;
+  text-align: center;
+}
+
+.audio-battle__info {
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  font-style: normal;
+  text-align: center;
+}
+
+.audio-battle__answers-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.audio-battle__answer-button_default {
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 5px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 3px;
+  border: 1px solid white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #0077b6ff;
+}
+
+.audio-battle__answer-button_default:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.audio-battle__answer-button_default:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.audio-battle__answer-button_default:focus {
+  border: 1px solid #230764;
+}
+
+.audio-battle__answer-button_wrong, .audio-battle__answer-button_unavailable {
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 5px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 3px;
+  border: 1px solid white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #0077b6ff;
+  opacity: 0.7;
+}
+
+.audio-battle__answer-button_wrong:hover, .audio-battle__answer-button_unavailable:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.audio-battle__answer-button_wrong:active, .audio-battle__answer-button_unavailable:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.audio-battle__answer-button_wrong:focus, .audio-battle__answer-button_unavailable:focus {
+  border: 1px solid #230764;
+}
+
+.audio-battle__answer-button_wrong {
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 5px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 3px;
+  border: 1px solid white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #0077b6ff;
+  text-decoration: line-through;
+}
+
+.audio-battle__answer-button_wrong:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.audio-battle__answer-button_wrong:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.audio-battle__answer-button_wrong:focus {
+  border: 1px solid #230764;
+}
+
+.audio-battle__answer-button_right {
+  height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 5px;
+  font-size: 16px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 3px;
+  border: 1px solid white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #0077b6ff;
+}
+
+.audio-battle__answer-button_right:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.audio-battle__answer-button_right:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.audio-battle__answer-button_right:focus {
+  border: 1px solid #230764;
+}
+
+.audio-battle__answer-button_default::before, .audio-battle__answer-button_wrong::before, .audio-battle__answer-button_unavailable::before {
+  content: attr(data-number);
+  color: honeydew;
+  width: 20px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 5px;
+}
+
+.audio-battle__answer-button_right::before {
+  content: "v";
+  border-radius: 60%;
+  background-color: green;
+  color: honeydew;
+  width: 20px;
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 5px;
+}
+
+.preloader {
+  background-image: url(../../assets/preloader.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100px;
+  height: 100px;
+}

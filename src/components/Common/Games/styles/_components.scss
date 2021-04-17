@@ -1,0 +1,25 @@
+@mixin commonAnswerButtonStyle($fontSize) {
+  height: 30px;
+  display: flex;
+  margin: 5px;
+  font-size: $fontSize;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 3px;
+  border: 1px solid white;
+  align-items: center;
+  justify-content: center;
+  background-color: #0077b6ff;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &:focus {
+    border: 1px solid rgb(35, 7, 100);
+  }
+}
