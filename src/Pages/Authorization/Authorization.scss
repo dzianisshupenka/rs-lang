@@ -1,4 +1,5 @@
-.SignIn {
+.SignIn,
+.AuthorizationWrapper {
   margin: auto;
   background-color: rgba(0, 0, 255, 1);
   border-radius: 25px;
@@ -6,16 +7,17 @@
   color: #fff;
   opacity: 0.8;
 }
+
 .TextInputLabel {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
 }
 
-.Login {
+.Login,
+.SignUp {
   display: flex;
   flex-direction: column;
-
 }
 .AuthFormControls {
   display: flex;
@@ -25,5 +27,32 @@
     &:hover {
       cursor: pointer;
     }
+  }
+}
+
+.AvatarWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: antiquewhite;
+  border-radius: 50px;
+  width: 180px;
+  height: 180px;
+  align-self: center;
+  overflow: hidden;
+}
+
+.LabelAsButton {
+  margin: 15px auto;
+  border: 1px solid #fff;
+  padding: 5px;
+  border-radius: 15px;
+  font-weight: 600;
+
+  &:hover{
+    cursor: pointer;
+  }
+  &:active {
+    transform: scale(1.1);
   }
 }

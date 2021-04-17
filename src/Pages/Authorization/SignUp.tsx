@@ -1,3 +1,4 @@
+import './Authorization.css';
 import React, { FC, SyntheticEvent } from 'react';
 import AuthForm from './AuthForm';
 import FormTextInputs from './FormTextInputs';

@@ -24,7 +24,7 @@ const AuthForm = ({ children, formName, submitHAndler }: Props) => {
   return (
     <div>
       {isLoged && <Redirect to="/" />}
-      <form onSubmit={(e) => submitHAndler(e)} name={formName}>
+      <form onSubmit={(e) => submitHAndler(e)} name={formName} className="SignUp">
         <h2>{message}</h2>
         {children}
         <div className="AuthFormControls">
