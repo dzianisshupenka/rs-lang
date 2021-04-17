@@ -56,3 +56,20 @@
     transform: scale(1.1);
   }
 }
+
+.preloader {
+  background-image: url(../../assets/preloader.gif);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100px;
+  height: 100px;
+  margin: 0px auto;
+  position: absolute;
+  left: 33%;
+  top: 30%;
+
+}
+
+.auth-wrapper {
+  position: relative;
+}
