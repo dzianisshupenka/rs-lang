@@ -14,7 +14,10 @@ const ANSWERRESULTSTYLES = {
   ANSWERBUTTON__WRONG: `${AUDIOBATTLE}__answer-button_wrong`,
   ANSWERBUTTON__UNAVAILABLE: `${AUDIOBATTLE}__answer-button_unavailable`,
   ANSWERBUTTON__RIGHT: `${AUDIOBATTLE}__answer-button_right`,
+  ANSWERBUTTON__WORD_IMAGE: `${AUDIOBATTLE}__word-image`,
 };
+
+const AUDIOBATTLE_FULLSCREEN = `${AUDIOBATTLE}__fullscreen`;
 
 const LISTOFPLAYEDWORDS = 'ListOfPlayedWords';
 const LISTOFPLAYEDWORDS_GROUP = `${LISTOFPLAYEDWORDS}__group`;
@@ -34,8 +37,10 @@ enum GameStatus {
 }
 
 const GAME_RULES = 'В этой игре Вам необходиму выбрать правильный перевод озвученного слова. Клик по иконке громофона воспроизводит слово повторно.';
+const GAME_RULES_SPRINT = 'В этой игре Вам необходимо решить правильный перевод слова или нет отображен под словом на английском. Нажатие кнопок клавиатуры "Влево" и "Вправо", "отрицает" или "подтверждает" правильность перевода.';
 export {
   AUDIOBATTLE,
+  AUDIOBATTLE_FULLSCREEN,
   ANSWERRESULTSTYLES,
   NUMBER_OF_WRONG_WORDS,
   GAMESTATUS,
@@ -55,4 +60,5 @@ export {
   LISTOFPLAYEDWORDS_WORD,
   LISTOFPLAYEDWORDS_WORDTRANSLATE,
   CONTROLBUTTON_ENDGAME,
+  GAME_RULES_SPRINT,
 };

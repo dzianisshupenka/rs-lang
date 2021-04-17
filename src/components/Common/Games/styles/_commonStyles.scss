@@ -24,6 +24,20 @@
   @include standartText(18px, $commonWhite, normal, normal);
 }
 
+@mixin gameStatusText {
+  @include standartText(34px, $commonWhite, 600, normal, center);
+}
+
+@mixin gameInfoText {
+  @include standartText(24px, $commonWhite, 500, normal, center);
+}
+
+.fullscreen-enabled {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: bisque;
+}
 a,
 a:hover,
 a:active,

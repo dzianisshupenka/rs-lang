@@ -1,22 +1,27 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import './AudioBatle.css';
 
 import React, { useEffect, useRef, useState } from 'react';
 
+import { FullScreen, useFullScreenHandle } from 'react-full-screen';
+import { connect } from 'react-redux';
+import fullScreenIcon from '../../assets/icons/fullscreen.png';
+import exitFullScreenIcon from '../../assets/icons/exit-fullscreen.png';
+import { AppStateType } from '../../redux/store';
 import CustomButton from '../Common/Games/CustomButton';
 import AnswerButtons from '../Common/Games/AnswerButton';
-import StatTable from '../Common/Games/EndGameStatistic/StatTable';
 import ListOfPlayedWords from '../Common/Games/EndGameStatistic/ListOfPlayedWords';
 
 import {
   playAudio,
   getRandomPlayableWordObject,
   insertNewCounterOfRightAnswers,
-  getNumOfRightAnswers,
-  getNumOfWrongAnswers,
-  getNumOfPlayedWords,
-  getMaxRightAnswersInARow,
-  getNumOfSkippedWords,
+  // getNumOfRightAnswers,
+  // getNumOfWrongAnswers,
+  // getNumOfPlayedWords,
+  // getMaxRightAnswersInARow,
+  // getNumOfSkippedWords,
   getNewListOfWords,
   getArrayLastIndex,
 } from '../Common/Games/CommonFuncs';
@@ -25,6 +30,7 @@ import { AnswerButtonProps, AudioBattleWordForRound } from '../Common/Games/Type
 
 import {
   ANSWERRESULTSTYLES,
+  AUDIOBATTLE_FULLSCREEN,
   AUDIOBATTLE,
   GAMESTATUS,
   INFO,
@@ -60,10 +66,11 @@ const AudioBatle = ({ page, group }: Props) => {
     answerResult: false,
     answers: [],
   });
-  const [showGameResult, setShowGameResult] = useState(true);
 
   const currentPage = useRef(page);
   const correctAnswersInARow = useRef([0]);
+
+  const handle = useFullScreenHandle();
 
   useEffect(() => {
     (async () => {
@@ -151,60 +158,58 @@ const AudioBatle = ({ page, group }: Props) => {
     setNextWordHandler(listOfWords);
   };
 
-  const setShowGameResultHandler = () => {
-    setShowGameResult((curren) => !curren);
-  };
-
   return (
-    <div className={AUDIOBATTLE}>
-      {gameStatus === GameStatus.inProcess && (
+    <FullScreen handle={handle}>
+      <div className={AUDIOBATTLE}>
+        <img
+          src={handle.active ? exitFullScreenIcon : fullScreenIcon}
+          alt="fullscreen"
+          className={AUDIOBATTLE_FULLSCREEN}
+          onClick={() => (handle.active ? handle.exit() : handle.enter())}
+        />
+        {gameStatus === GameStatus.inProcess && (
         <CustomButton
           value="Завершить"
           className={CONTROLBUTTON_ENDGAME}
           onClickHandler={() => setGameStatus(GameStatus.finished)}
         />
-      )}
-      <h2 className={GAMESTATUS}>{gameStatus}</h2>
-      {gameStatus === GameStatus.loading && <div className="preloader" />}
-      {gameStatus === GameStatus.finished && showGameResult && (
-        <>
-          <StatTable
-            arrayOfData={[
-              {
-                name: 'Удачные попытки, %',
-                value: Math.round(
-                  (100 * getNumOfRightAnswers(listOfWords))
-                    / getNumOfPlayedWords(listOfWords),
-                ),
-              },
-              {
-                name: 'Неудачные попытки, %',
-                value: Math.round(
-                  (100 * getNumOfWrongAnswers(listOfWords))
-                    / getNumOfPlayedWords(listOfWords),
-                ),
-              },
-              {
-                name: 'Пропущено слов, %',
-                value: Math.round(
-                  (100 * getNumOfSkippedWords(listOfWords))
-                    / getNumOfPlayedWords(listOfWords),
-                ),
-              },
-              {
-                name: 'Всего слов',
-                value: getNumOfPlayedWords(listOfWords),
-              },
-              {
-                name: 'Максимум правильных ответов подряд',
-                value: getMaxRightAnswersInARow(correctAnswersInARow.current),
-              },
-            ]}
-          />
-        </>
-      )}
+        )}
+        <h2 className={GAMESTATUS}>{gameStatus}</h2>
+        {gameStatus === GameStatus.loading && <div className="preloader" />}
 
-      {gameStatus === GameStatus.finished && !showGameResult && (
+        {/* [
+        {
+          name: 'Удачные попытки, %',
+          value: Math.round(
+            (100 * getNumOfRightAnswers(listOfWords))
+              / getNumOfPlayedWords(listOfWords),
+          ),
+        },
+        {
+          name: 'Неудачные попытки, %',
+          value: Math.round(
+            (100 * getNumOfWrongAnswers(listOfWords))
+              / getNumOfPlayedWords(listOfWords),
+          ),
+        },
+        {
+          name: 'Пропущено слов, %',
+          value: Math.round(
+            (100 * getNumOfSkippedWords(listOfWords))
+              / getNumOfPlayedWords(listOfWords),
+          ),
+        },
+        {
+          name: 'Всего слов',
+          value: getNumOfPlayedWords(listOfWords),
+        },
+        {
+          name: 'Максимум правильных ответов подряд',
+          value: getMaxRightAnswersInARow(correctAnswersInARow.current),
+        },
+      ] */}
+
+        {gameStatus === GameStatus.finished && (
         <>
           <ListOfPlayedWords
             listOfPlayedWords={listOfWords.filter(
@@ -212,17 +217,9 @@ const AudioBatle = ({ page, group }: Props) => {
             )}
           />
         </>
-      )}
+        )}
 
-      {gameStatus === GameStatus.finished && (
-        <CustomButton
-          value={showGameResult ? 'Показать слова' : 'показать статистику'}
-          className={CONTROLBUTTON_DEFAULT}
-          onClickHandler={() => setShowGameResultHandler()}
-        />
-      )}
-
-      {gameStatus === GameStatus.inProcess && (
+        {gameStatus === GameStatus.inProcess && (
         <>
           <div
             className={
@@ -231,7 +228,7 @@ const AudioBatle = ({ page, group }: Props) => {
                 : 'audio-battle__word-prompt_hidden'
             }
           >
-            <img src={CurrentPlayedWord?.image} alt="not loaded" />
+            <img className={ANSWERRESULTSTYLES.ANSWERBUTTON__WORD_IMAGE} src={CurrentPlayedWord?.image} alt="not loaded" />
             <div className={WORD}>
               <CustomButton
                 className={REPEATAUDIO_SMALL}
@@ -243,24 +240,24 @@ const AudioBatle = ({ page, group }: Props) => {
             </div>
           </div>
         </>
-      )}
+        )}
 
-      {!CurrentPlayedWord.alredyPlayed
+        {!CurrentPlayedWord.alredyPlayed
         && gameStatus === GameStatus.inProcess && (
           <CustomButton
             className={REPEATAUDIO_BIG}
             onClickHandler={() => playAudio(CurrentPlayedWord?.audio)}
           />
-      )}
+        )}
 
-      {gameStatus === GameStatus.inProcess && (
+        {gameStatus === GameStatus.inProcess && (
         <AnswerButtons
           arrOfAnswerButtons={CurrentPlayedWord?.answers as AnswerButtonProps[]}
           answerButtonHandler={answerButtonHandler}
         />
-      )}
+        )}
 
-      {gameStatus === GameStatus.ready && (
+        {gameStatus === GameStatus.ready && (
         <>
           <h2 className={INFO}>{GAME_RULES}</h2>
           <CustomButton
@@ -269,9 +266,9 @@ const AudioBatle = ({ page, group }: Props) => {
             onClickHandler={() => startGameHandler(listOfWords)}
           />
         </>
-      )}
+        )}
 
-      {gameStatus === GameStatus.inProcess
+        {gameStatus === GameStatus.inProcess
         && CurrentPlayedWord.alredyPlayed
         && CurrentPlayedWord.word && (
           <CustomButton
@@ -279,9 +276,9 @@ const AudioBatle = ({ page, group }: Props) => {
             className={CONTROLBUTTON_DEFAULT}
             onClickHandler={() => setNextWordHandler(listOfWords)}
           />
-      )}
+        )}
 
-      {gameStatus === GameStatus.inProcess
+        {gameStatus === GameStatus.inProcess
         && !CurrentPlayedWord.alredyPlayed
         && CurrentPlayedWord.word && (
           <CustomButton
@@ -289,9 +286,15 @@ const AudioBatle = ({ page, group }: Props) => {
             className={CONTROLBUTTON_DEFAULT}
             onClickHandler={() => skipWordHandler()}
           />
-      )}
-    </div>
+        )}
+      </div>
+    </FullScreen>
   );
 };
 
-export default AudioBatle;
+const mapStateToProps = (state: AppStateType) => ({
+  page: state.words.currentPage,
+  group: state.words.currentGroup,
+});
+
+export default connect(mapStateToProps)(AudioBatle);

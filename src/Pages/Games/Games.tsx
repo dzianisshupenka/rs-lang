@@ -4,6 +4,7 @@ import ChooseGame from '../../components/ChooseGame';
 import MakeWordGame from '../../components/MakeWordGame/MakeWordGame';
 import SavannaGame from '../../components/SavannaGame/SavannaGame';
 import AudioBatle from '../../components/AudioBattle/AudioBattle';
+import SprintGame from '../../components/SprintGame/SprintGame';
 
 const Games:React.FC = () => (
   <div className="games-wrapper">
@@ -12,7 +13,8 @@ const Games:React.FC = () => (
         <Route path="/games/" exact component={ChooseGame} />
         <Route path="/games/make-word" component={MakeWordGame} />
         <Route path="/games/savanna" component={SavannaGame} />
-        <Route path="/games/audio-battle"><AudioBatle page={1} group={0} /></Route>
+        <Route path="/games/audio-battle" component={AudioBatle} />
+        <Route path="/games/sprint" component={SprintGame} />
       </Switch>
     </div>
   </div>

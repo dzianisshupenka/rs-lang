@@ -202,3 +202,51 @@
   width: 100px;
   height: 100px;
 }
+.isCorrectButton {
+  background-color: green;
+}
+
+.isInCorrectButton {
+  background-color: red;
+}
+
+.arrow-right{
+  background-image: url(../../assets/icons/right-arrow.png);
+  height: 50px;
+    width: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.arrow-left{
+  background-image: url(../../assets/icons/right-arrow.png);
+  height: 50px;
+    width: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transform: rotate(180deg);
+
+}
+// .answer-marker {
+//   width: 25px;
+//     height: 25px;
+//     border-radius: 50%;
+//     &::after {
+//       content: "";
+//     }
+//     &__right {
+//       background-color: green;
+//       &::after {
+//         content: "V";
+//       }
+//     }
+//     &__wrong {
+//       background-color: red;
+//       &::after {
+//         content: "X";
+//       }
+//     }
+
+// }

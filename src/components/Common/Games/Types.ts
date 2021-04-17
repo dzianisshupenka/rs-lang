@@ -17,6 +17,19 @@ type AudioBattleWordForRound = {
   answers: AnswerButtonProps[];
 };
 
+type SprintWordForRound = {
+  id: string;
+  group: number;
+  page: number;
+  word: string;
+  wordTranslate: string;
+  image: string;
+  audio:string;
+  alredyPlayed: boolean;
+  answerResult: boolean;
+  visibleAnswer: string;
+};
+
 type ButtonProps = {
   disabled?: boolean;
   keyVal?: string;
@@ -37,5 +50,9 @@ type EndGameStatisticElement = {
 };
 // eslint-disable-next-line import/prefer-default-export
 export type {
-  AnswerButtonProps, AudioBattleWordForRound, ButtonProps, EndGameStatisticElement,
+  AnswerButtonProps,
+  AudioBattleWordForRound,
+  ButtonProps,
+  EndGameStatisticElement,
+  SprintWordForRound,
 };
