@@ -37,6 +37,7 @@ enum GameStatus {
 }
 
 const GAME_RULES = 'В этой игре Вам необходиму выбрать правильный перевод озвученного слова. Клик по иконке громофона воспроизводит слово повторно.';
+const GAME_RULES_SPRINT = 'В этой игре Вам необходимо решить правильный перевод слова или нет отображен под словом на английском. Нажатие кнопок клавиатуры "Влево" и "Вправо", "отрицает" или "подтверждает" правильность перевода.';
 export {
   AUDIOBATTLE,
   AUDIOBATTLE_FULLSCREEN,
@@ -59,4 +60,5 @@ export {
   LISTOFPLAYEDWORDS_WORD,
   LISTOFPLAYEDWORDS_WORDTRANSLATE,
   CONTROLBUTTON_ENDGAME,
+  GAME_RULES_SPRINT,
 };

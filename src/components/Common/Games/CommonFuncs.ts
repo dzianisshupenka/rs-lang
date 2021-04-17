@@ -1,6 +1,7 @@
+/* eslint-disable max-len */
 /* eslint-disable import/prefer-default-export */
 import wordsAPI from '../../../api/words';
-import { AnswerButtonProps, AudioBattleWordForRound } from './Types';
+import { AnswerButtonProps, AudioBattleWordForRound, SprintWordForRound } from './Types';
 import {
   ANSWERRESULTSTYLES,
   NUMBER_OF_WRONG_WORDS,
@@ -19,6 +20,12 @@ const getRandomPlayableWordObject = (
   listOfWords: AudioBattleWordForRound[],
 ): AudioBattleWordForRound | undefined => listOfWords.find(
   (wordObject: AudioBattleWordForRound) => wordObject.alredyPlayed === false,
+);
+
+const getRandomPlayableWordObjectSprint = (
+  listOfWords: SprintWordForRound[],
+): SprintWordForRound | undefined => listOfWords.find(
+  (wordObject: SprintWordForRound) => wordObject.alredyPlayed === false,
 );
 
 const getRandomNumber = (maxValue: number) => Math.floor(Math.random() * maxValue);
@@ -89,12 +96,51 @@ const getPlayableListOfWords = (
     };
   });
 
+const getPlayableListOfWordsForSprint = (
+  rawListOfWords: any,
+): SprintWordForRound[] => {
+  const arrOfUsedVisibleAnswers: string[] = [];
+
+  return rawListOfWords
+    .map((rawWordObject: any, _: number, mappedArray: any[]) => {
+      const {
+        id, group, page, word, wordTranslate, image, audio,
+      } = rawWordObject;
+
+      const indexOfVisibleAnswer = getRandomNumber(mappedArray.length - arrOfUsedVisibleAnswers.length);
+      const visibleAnswer: string = mappedArray
+        .filter((rawWordObj: any) => !arrOfUsedVisibleAnswers.includes(rawWordObj.wordTranslate))[indexOfVisibleAnswer]
+        .wordTranslate;
+      arrOfUsedVisibleAnswers.push(visibleAnswer);
+
+      return {
+        id,
+        group,
+        page,
+        word,
+        wordTranslate,
+        image: `${BACKEND_ROUTE}/${image}`,
+        audio: `${BACKEND_ROUTE}/${audio}`,
+        alredyPlayed: false,
+        answerResult: undefined,
+        visibleAnswer,
+      };
+    });
+};
+
 const getNewListOfWords = async (
   page: number,
   group: number,
 ): Promise<AudioBattleWordForRound[]> => {
   const rawListOfWords = await wordsAPI.getWords(page, group);
   const newListOfWords = getPlayableListOfWords(rawListOfWords);
+  return newListOfWords;
+};
+
+const getNewListOfWordsSprint = async (page: number,
+  group: number) : Promise<SprintWordForRound[]> => {
+  const rawListOfWords = await wordsAPI.getWords(page, group);
+  const newListOfWords = getPlayableListOfWordsForSprint(rawListOfWords);
   return newListOfWords;
 };
 
@@ -139,4 +185,6 @@ export {
   getNumOfSkippedWords,
   getNewListOfWords,
   getArrayLastIndex,
+  getNewListOfWordsSprint,
+  getRandomPlayableWordObjectSprint,
 };
