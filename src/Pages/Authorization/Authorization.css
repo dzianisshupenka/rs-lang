@@ -55,8 +55,6 @@
           align-items: center;
   background-color: antiquewhite;
   border-radius: 50px;
-  width: 180px;
-  height: 180px;
   -ms-flex-item-align: center;
       align-self: center;
   overflow: hidden;
